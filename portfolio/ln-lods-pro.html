@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html data-accent="orange" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>LN LODs Pro — a commercial Blender add-on for MSFS 2024 — Cristian Da Ros</title>
+<meta content="How a Blender add-on calculates MSFS 2024 LOD thresholds from the exporter's own vertex count, tests transitions before export, and stayed maintainable from v1.6 to v4." name="description"/>
+<!-- DRAFT: remove noindex and add to sitemap.xml when the numbers and the code excerpt are final. -->
+<meta content="dark" name="color-scheme"/>
+<meta content="#08090b" name="theme-color"/>
+<meta content="article" property="og:type"/>
+<meta content="LN LODs Pro — a commercial add-on born from a pipeline problem" property="og:title"/>
+<meta content="A Blender add-on that makes the LOD count match the MSFS 2024 exporter, and lets you test the transitions before export." property="og:description"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="https://cristiandaros.altervista.org/assets/img/code/lnlods-og.jpg" property="og:image"/>
+<link href="../assets/favicon.svg" id="favicon-svg" rel="icon" type="image/svg+xml"/>
+<link href="../favicon.ico" rel="icon" sizes="32x32"/>
+<link href="../assets/css/style.css?v=code-9" rel="stylesheet"/>
+<script>
+  (function () {
+    try {
+      var a = localStorage.getItem("accento");
+      var ok = ["orange", "green", "red", "blue", "cyan", "violet"];
+      if (a && ok.indexOf(a) > -1) {
+        document.documentElement.setAttribute("data-accent", a);
+      }
+    } catch (e) {}
+  })();
+</script>
+<link rel="canonical" href="https://cristiandaros.altervista.org/portfolio/ln-lods-pro.html">
+<link rel="alternate" hreflang="en" href="https://cristiandaros.altervista.org/portfolio/ln-lods-pro.html">
+<link rel="alternate" hreflang="it" href="https://cristiandaros.altervista.org/it/portfolio/ln-lods-pro.html">
+<link rel="alternate" hreflang="x-default" href="https://cristiandaros.altervista.org/portfolio/ln-lods-pro.html">
+<meta content="noindex,nofollow" name="robots"/>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<!-- HEADER — vedi index.html -->
+<header class="site-header">
+<div class="shell header-inner">
+<a class="brand" href="../index.html">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-name">Cristian Da Ros</span>
+</a>
+<nav aria-label="Main navigation" class="nav" id="primary-nav">
+<div class="nav-head">
+<span class="nav-head-title">Index</span>
+<button aria-label="Close the menu" class="nav-close" type="button">Close ✕</button>
+</div>
+<ul class="nav-list">
+<li><a href="../3d-msfs.html">3D &amp; MSFS</a></li>
+<li><a href="../video.html">Video</a></li>
+<li><a href="../vibe-coding.html">Code &amp; AI</a></li>
+<li><a href="../pc-linux.html">PC &amp; Linux</a></li>
+<li><a href="../contatti.html">Contact</a></li>
+</ul>
+<div class="nav-foot">
+<div aria-label="Theme" class="accent-switch" role="group">
+<span class="accent-switch-label">Theme</span>
+<button aria-label="Orange" aria-pressed="true" class="accent-dot" data-accent-set="orange" style="--dot:#ff7100" title="Orange" type="button"></button>
+<button aria-label="Green" aria-pressed="false" class="accent-dot" data-accent-set="green" style="--dot:#3dffa0" title="Green" type="button"></button>
+<button aria-label="Red" aria-pressed="false" class="accent-dot" data-accent-set="red" style="--dot:#ff3556" title="Red" type="button"></button>
+<button aria-label="Blue" aria-pressed="false" class="accent-dot" data-accent-set="blue" style="--dot:#3f7bff" title="Blue" type="button"></button>
+<button aria-label="Light blue" aria-pressed="false" class="accent-dot" data-accent-set="cyan" style="--dot:#2bd9ff" title="Light blue" type="button"></button>
+<button aria-label="Purple" aria-pressed="false" class="accent-dot" data-accent-set="violet" style="--dot:#b26bff" title="Purple" type="button"></button>
+</div>
+<div aria-label="Language" class="lang-switch" role="group"><a aria-label="Italiano" class="lang-option" data-lang="it" href="../it/portfolio/ln-lods-pro.html" hreflang="it" lang="it"><svg aria-hidden="true" focusable="false" viewbox="0 0 30 20"><rect fill="#009246" height="20" width="10"></rect><rect fill="#fff" height="20" width="10" x="10"></rect><rect fill="#ce2b37" height="20" width="10" x="20"></rect></svg><span>ITA</span></a><a aria-current="true" aria-label="English" class="lang-option is-active" data-lang="en" href="ln-lods-pro.html" hreflang="en" lang="en"><svg aria-hidden="true" focusable="false" viewbox="0 0 30 20"><rect fill="#012169" height="20" width="30"></rect><path d="M0 0l30 20M30 0L0 20" stroke="#fff" stroke-width="4"></path><path d="M0 0l30 20M30 0L0 20" stroke="#C8102E" stroke-width="2"></path><path d="M15 0v20M0 10h30" stroke="#fff" stroke-width="6"></path><path d="M15 0v20M0 10h30" stroke="#C8102E" stroke-width="3"></path></svg><span>ENG</span></a></div>
+</div>
+</nav>
+<button aria-controls="primary-nav" aria-expanded="false" class="nav-toggle" type="button">
+<span>Menu</span>
+<span aria-hidden="true" class="nav-toggle-icon"><span></span><span></span></span>
+</button>
+</div>
+</header>
+<main id="main">
+<header class="page-head">
+<div class="shell">
+<div class="page-head-grid">
+<div class="page-id">
+<nav aria-label="Path" class="breadcrumb">
+<a href="../index.html">Home</a>
+<span aria-hidden="true">/</span>
+<a href="../vibe-coding.html">Code &amp; AI</a>
+<span aria-hidden="true">/</span>
+<a href="code-ai.html">Portfolio</a>
+<span aria-hidden="true">/</span>
+<span>LN LODs Pro</span>
+</nav>
+<p class="area-label">Case study</p>
+</div>
+<div class="page-title page-title--case">
+<h1>LN LODs Pro — a commercial add-on born from a <em>pipeline</em> problem</h1>
+<p class="lead">A Blender add-on that makes the LOD count in Blender match the MSFS 2024 exporter, and lets you test the transitions before export.</p>
+</div>
+</div>
+</div>
+</header>
+<div class="shell">
+<div class="layout">
+<aside class="side">
+<p class="side-label">On this page</p>
+<nav aria-label="Sections of the page" class="toc" data-toc="">
+<a href="#contesto">Context</a>
+<a href="#problema">The problem</a>
+<a href="#perche">Why I wrote it</a>
+<a href="#metodo">How the method changed</a>
+<a href="#scogli">The technical hurdles</a>
+<a href="#risultato">Result</a>
+<a href="#limiti">Limits</a>
+<a href="#lezioni">What I learned</a>
+</nav>
+</aside>
+<div class="content">
+
+<section class="block" id="contesto">
+<div class="block-head">
+<h2>Context</h2>
+</div>
+<div class="block-body">
+<div class="prose">
+<p>In Microsoft Flight Simulator 2024 a model is exported with several LODs; the simulator picks one according to screen coverage. The thresholds live in the model's XML, and the exporter writes them from its own vertex count. That count is not the number Blender shows: the exporter splits seams, normals, colours and tangents, and merges objects before counting.</p>
+<p>The SDK's exporter is the reference. The add-on does not replace it: it calculates the same count, writes the values into the LOD groups and keeps the standard pipeline as the only path.</p>
+</div>
+<figure class="feature-media case-figure">
+<a class="figure-open" href="../assets/img/code/lnlods-hero.webp" data-lightbox data-title="Blender viewport with the LN LODs Pro panel: the coverage sphere around a test model at 427%, the seven LOD levels and their vertex counts." rel="noopener" target="_blank">
+<img alt="Blender viewport with the LN LODs Pro panel: the coverage sphere around a test model at 427%, the seven LOD levels and their vertex counts." decoding="async" height="607" loading="eager" sizes="(max-width: 900px) 100vw, 60vw" src="../assets/img/code/lnlods-hero.webp" srcset="../assets/img/code/lnlods-hero-sm.webp 600w, ../assets/img/code/lnlods-hero.webp 1200w" width="1200"/>
+</a>
+<figcaption>Blender 4.5 · test scene, coverage sphere and LOD panel · <a href="../assets/img/code/lnlods-hero.webp" data-lightbox data-title="Blender viewport with the LN LODs Pro panel: the coverage sphere around a test model at 427%, the seven LOD levels and their vertex counts." rel="noopener" target="_blank">Open full size <span aria-hidden="true">↗</span></a></figcaption>
+</figure>
+</div>
+</section>
+
+<section class="block" id="problema">
+<div class="block-head">
+<h2>The <em>problem</em></h2>
+</div>
+<div class="block-body">
+<div class="prose">
+<p>A model could look correct in Blender and pop in the simulator, because the threshold was calculated on a different vertex count. The only way to find out was to export, open the sim, fly to the right distance and look. Then go back, change a number and repeat.</p>
+<p>I wanted the loop inside Blender: see the count the exporter will see, see the coverage at a given distance, and test the transition before writing the files.</p>
+</div>
+<figure class="diagram">
+<figcaption class="diagram-caption">Standard workflow vs LN LODs Pro: the same result, with fewer context switches.</figcaption>
+<div class="diagram-row diagram-row--slow">
+<div class="diagram-head"><span class="diagram-label">Standard workflow</span><span class="diagram-count">6 steps</span></div>
+<ol class="diagram-flow">
+<li class="diagram-step" style="--i:0">Create LODs</li>
+<li class="diagram-step" style="--i:1">Export</li>
+<li class="diagram-step" style="--i:2">Launch Flight Simulator</li>
+<li class="diagram-step" style="--i:3">Enable LOD Testing Mode</li>
+<li class="diagram-step" style="--i:4">Compare values and note discrepancies</li>
+<li class="diagram-step" style="--i:5">Exit sim and correct in Blender or XML</li>
+</ol>
+</div>
+<div class="diagram-row diagram-row--fast">
+<div class="diagram-head"><span class="diagram-label">LN LODs Pro</span><span class="diagram-count">3 steps</span></div>
+<ol class="diagram-flow">
+<li class="diagram-step" style="--i:0">Create LODs</li>
+<li class="diagram-step" style="--i:1">Test inside Blender</li>
+<li class="diagram-step" style="--i:2">Export</li>
+</ol>
+</div>
+<p class="diagram-note">The standard path goes through the simulator to find out whether the count is right. LN LODs Pro answers inside Blender.</p>
+</figure>
+</div>
+</section>
+
+<section class="block" id="perche">
+<div class="block-head">
+<h2>Why I wrote it</h2>
+</div>
+<div class="block-body prose">
+<p>I work as an independent developer and partner in the MSFS ecosystem; I use the SDK and the exporter every day. At the time I could not find a tool that counted vertices the way the exporter does and let me test the result before export. So I wrote it, and I kept using it.</p>
+<p>It was not a weekend script. The first version was a way to avoid a manual count; the Pro line added the viewer, non-destructive operators and a maintenance history. The decision to spend months on it was taken because the work it removed was repetitive and measurable.</p>
+</div>
+</section>
+
+<section class="block" id="metodo">
+<div class="block-head">
+<h2>How the method <em>changed</em></h2>
+</div>
+<div class="block-body">
+<div class="prose">
+<p>The tool started in 2023 and grew in phases. What changed is not only the code: it is the way I write it.</p>
+</div>
+<ol class="timeline">
+<li class="timeline-item"><span class="timeline-year">2023</span><div><h3>ChatGPT and Notepad++</h3><p>First working version. Copy, paste, run, fix; no version control and no plan.</p></div></li>
+<li class="timeline-item"><span class="timeline-year">2023</span><div><h3>VS Code and Git</h3><p>The project becomes a codebase: history, diffs, a structure that can survive a pause.</p></div></li>
+<li class="timeline-item"><span class="timeline-year">2024</span><div><h3>Agents</h3><p>Plan and audit files, explicit context, human review. The agent accelerates; the domain knowledge stays mine.</p></div></li>
+<li class="timeline-item"><span class="timeline-year">2026</span><div><h3>Suite and rework</h3><p>The add-on becomes the first module of a suite of MSFS tools; the agent workspace behind it is public.</p></div></li>
+</ol>
+<div class="prose">
+<p>The workspace is open source: six OpenCode agents, a verified knowledge cache and an installer. It is not a magic prompt; it is a discipline made of plans, audits and checks.</p>
+<p><a href="https://github.com/Losco-Nosciuto/Opencode_MSFS" rel="noopener" target="_blank">MSFS 2024 OpenCode Workspace <span aria-hidden="true">↗</span></a></p>
+</div>
+</div>
+</section>
+
+<section class="block" id="scogli">
+<div class="block-head">
+<h2>The technical <em>hurdles</em></h2>
+</div>
+<div class="block-body">
+<ol class="steps">
+<li class="step"><span class="step-n">01</span><h3>Counting vertices like the exporter</h3><p>Seams, split normals, colours, tangents and merged objects: the count has to follow the same rules as the MSFS 2024 exporter, not Blender's statistics panel.</p></li>
+<li class="step"><span class="step-n">02</span><h3>Performance on large scenes</h3><p>Vectorised numpy where it matters, a BMesh fallback where it does not, and a cache keyed on object identity to avoid recounting the same mesh.</p></li>
+<li class="step"><span class="step-n">03</span><h3>Testing LODs without exporting</h3><p>Bounding sphere, coverage as radius divided by distance, clamped to the same range the simulator uses. The viewer shows the thresholds before the exporter runs.</p></li>
+<li class="step"><span class="step-n">04</span><h3>Instant LOD switching</h3><p>Modifiers are baked when testing mode is entered, so the LOD change is immediate and the scene stays comparable.</p></li>
+<li class="step"><span class="step-n">05</span><h3>Non-destructive operators</h3><p>Overlays, lens, visibility and undo state are saved and restored. Testing a LOD must not leave the file changed.</p></li>
+<li class="step"><span class="step-n">06</span><h3>Integration with the exporter</h3><p>Values are written into the LOD groups, with rounding and margin, and the standard export path remains the only one.</p></li>
+</ol>
+</div>
+</section>
+
+<section class="block" id="risultato">
+<div class="block-head">
+<h2>Result</h2>
+</div>
+<div class="block-body">
+<div class="stat-row">
+<div class="stat"><span class="stat-n">Hundreds</span><span class="stat-label">Models tested</span></div>
+<div class="stat"><span class="stat-n">1:1</span><span class="stat-label">Vertex-count accuracy</span></div>
+<div class="stat"><span class="stat-n">15 min – 1 h</span><span class="stat-label">Time saved per model</span></div>
+</div>
+<div class="note">
+<span class="note-title">How the numbers were measured</span>
+<p>Hundreds of models, including testers during the 3.x pre-release. The vertex count is 1:1 with the exporter because the add-on uses the same export and triangulation engine, based on Khronos glTF. The margin slider is a fallback for Asobo updates, not an error compensation.</p>
+<p>Time saved depends on the model: 15 minutes to 1 hour of LOD debug for a simple model; complex models with sub-models or multiple meshes, each with its own LODs, can reach hours.</p>
+</div>
+<div class="prose">
+<p>Version 1.6 was the first public release: free, with no LOD debugger. The 3.x line brought the first Pro iteration and the viewer with its testing mode. The 4.x line standardized the split: Pro is the free base plus the Pro modules; strip those modules and it still works as the free version.</p>
+<p>It is sold on Gumroad and Superhive, is GPL-licensed and ships its source with the purchase. The 4.x line is in rework for the suite.</p>
+</div>
+<figure class="feature-media case-figure">
+<a class="figure-open" href="../assets/img/code/lnlods-results.webp" data-lightbox data-title="LN LODs Pro panel: LOD results from 722,516 to 24 vertices, with percentages, screen-space margin and the action that writes the values into the Asobo exporter." rel="noopener" target="_blank">
+<img alt="LN LODs Pro panel: LOD results from 722,516 to 24 vertices, with percentages, screen-space margin and the action that writes the values into the Asobo exporter." decoding="async" height="420" loading="lazy" sizes="(max-width: 900px) 100vw, 60vw" src="../assets/img/code/lnlods-results.webp" srcset="../assets/img/code/lnlods-results-sm.webp 600w, ../assets/img/code/lnlods-results.webp 1200w" width="1200"/>
+</a>
+<figcaption>LOD results: vertex counts and percentages · <a href="../assets/img/code/lnlods-results.webp" data-lightbox data-title="LN LODs Pro panel: LOD results from 722,516 to 24 vertices, with percentages, screen-space margin and the action that writes the values into the Asobo exporter." rel="noopener" target="_blank">Open full size <span aria-hidden="true">↗</span></a></figcaption>
+</figure>
+<figure class="feature-media case-figure">
+<a class="figure-open" href="../assets/img/code/lnlods-viewer.webp" data-lightbox data-title="LN LOD Viewer: per-level thresholds from 174 to 18, the testing mode and the action that sends the tweaked values to the exporter." rel="noopener" target="_blank">
+<img alt="LN LOD Viewer: per-level thresholds from 174 to 18, the testing mode and the action that sends the tweaked values to the exporter." decoding="async" height="558" loading="lazy" sizes="(max-width: 900px) 100vw, 60vw" src="../assets/img/code/lnlods-viewer.webp" srcset="../assets/img/code/lnlods-viewer-sm.webp 600w, ../assets/img/code/lnlods-viewer.webp 1200w" width="1200"/>
+</a>
+<figcaption>LOD viewer: thresholds and testing mode · <a href="../assets/img/code/lnlods-viewer.webp" data-lightbox data-title="LN LOD Viewer: per-level thresholds from 174 to 18, the testing mode and the action that sends the tweaked values to the exporter." rel="noopener" target="_blank">Open full size <span aria-hidden="true">↗</span></a></figcaption>
+</figure>
+</div>
+</section>
+
+<section class="block" id="limiti">
+<div class="block-head">
+<h2>Limits</h2>
+</div>
+<div class="block-body prose">
+<p>The add-on depends on the exporter's internals. A change in the SDK can change the count, and the add-on has to follow. It also depends on Blender's API: a new version can break an operator or a panel.</p>
+<p>The margin slider is not a correction for an intrinsic error: it is a buffer for the window between an Asobo update and the package update.</p>
+<p>Edge cases remain: non-manifold geometry, heavy modifier stacks, instancing. The tool minimises the risk; it does not eliminate it. The design choice is to make the failure visible before export, not to promise a perfect count on every scene.</p>
+</div>
+</section>
+
+<section class="block" id="lezioni">
+<div class="block-head">
+<h2>What I <em>learned</em></h2>
+</div>
+<div class="block-body">
+<div class="prose">
+<p>The domain knowledge is yours; the agent accelerates it. A model can propose a solution, but it cannot know why the exporter counts a seam twice. That is the part you bring.</p>
+<p>Maintenance is the real cost. The code you do not touch is the code that stays correct; the rest is a sequence of small decisions that have to remain legible six months later.</p>
+</div>
+<div class="note">
+<span class="note-title">License and availability</span>
+<p>LN LODs Pro is GPL-licensed; the source is included with the purchase. The page loads no third-party resources: no cookies, no analytics, and no requests to GitHub, Gumroad, Superhive or YouTube until you click.</p>
+</div>
+<div class="feature-links">
+<a class="feature-link" href="https://lndesignfs.gumroad.com/l/lnlodspro" rel="noopener" target="_blank">Gumroad <span aria-hidden="true">↗</span></a>
+<a class="feature-link" href="https://superhivemarket.com/products/ln-lods-pro4" rel="noopener" target="_blank">Superhive <span aria-hidden="true">↗</span></a>
+<a class="feature-link" href="https://www.youtube.com/watch?v=-oM9fHnyr5w" rel="noopener" target="_blank">Watch the demo <span aria-hidden="true">↗</span></a>
+</div>
+</div>
+</section>
+
+</div>
+</div>
+</div>
+</main>
+<dialog aria-label="Image viewer" class="image-dialog" data-image-dialog>
+<div class="image-dialog-inner">
+<button aria-label="Close the image" class="image-dialog-close" data-image-close type="button">Close ✕</button>
+<img alt="" data-image-target/>
+</div>
+</dialog>
+<!-- FOOTER — vedi index.html -->
+<footer class="site-footer">
+<div class="shell">
+<div class="footer-grid">
+<div class="footer-brand">
+<a class="brand" href="../index.html">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-name">Cristian Da Ros</span>
+</a>
+<p>
+          3D modeling and real time for MSFS 2024, video production, code and systems.
+          Static site, handmade.
+        </p>
+</div>
+<nav aria-label="Areas of the site" class="footer-col">
+<h2>Areas</h2>
+<ul>
+<li><a href="../3d-msfs.html">3D &amp; MSFS 2024</a></li>
+<li><a href="../video.html">Video Production</a></li>
+<li><a href="../vibe-coding.html">Code &amp; AI</a></li>
+<li><a href="../pc-linux.html">PC &amp; Linux</a></li>
+</ul>
+</nav>
+<div class="footer-col">
+<h2>Contact</h2>
+<ul>
+<li><a href="mailto:chris.daros86@gmail.com">chris.daros86@gmail.com</a></li>
+<li><a href="../contatti.html">Contact page</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-base">
+<p>© <span data-year="">2026</span> Cristian Da Ros</p>
+<p>HTML · CSS · JS — no CMS, no tracker</p>
+</div>
+<p aria-hidden="true" class="footer-name">Cristian Da Ros</p>
+</div>
+</footer>
+<script defer="" src="../assets/js/main.js?v=code-1"></script>
+</body>
+</html>

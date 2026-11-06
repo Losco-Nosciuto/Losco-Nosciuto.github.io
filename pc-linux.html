@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html data-accent="orange" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Dual boot: Windows 11 &amp; Nobara Linux — Cristian Da Ros</title>
+<meta content="A dual-boot workstation: Windows 11 26H2 for MSFS 2024 and Adobe, Nobara Linux 44 for daily work, rendering, development and gaming. Full hardware and setup." name="description"/>
+<meta content="dark" name="color-scheme"/>
+<meta content="#08090b" name="theme-color"/>
+<meta content="article" property="og:type"/>
+<meta content="Dual boot: Windows 11 &amp; Nobara Linux" property="og:title"/>
+<meta content="Two systems, one workstation: MSFS and Adobe on Windows, daily work and rendering on Nobara." property="og:description"/>
+<meta content="en_US" property="og:locale"/>
+<link href="assets/favicon.svg" id="favicon-svg" rel="icon" type="image/svg+xml"/>
+<link href="favicon.ico" rel="icon" sizes="32x32"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<script>
+  (function () {
+    try {
+      var a = localStorage.getItem("accento");
+      var ok = ["orange", "green", "red", "blue", "cyan", "violet"];
+      if (a && ok.indexOf(a) > -1) {
+        document.documentElement.setAttribute("data-accent", a);
+      }
+    } catch (e) {}
+  })();
+</script>
+<link href="https://cristiandaros.altervista.org/pc-linux.html" rel="canonical"/>
+<link href="https://cristiandaros.altervista.org/pc-linux.html" hreflang="en" rel="alternate"/>
+<link href="https://cristiandaros.altervista.org/it/pc-linux.html" hreflang="it" rel="alternate"/>
+<link href="https://cristiandaros.altervista.org/pc-linux.html" hreflang="x-default" rel="alternate"/>
+<meta content="noindex,nofollow" name="robots"/>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<!-- HEADER — vedi index.html -->
+<header class="site-header">
+<div class="shell header-inner">
+<a class="brand" href="index.html">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-name">Cristian Da Ros</span>
+</a>
+<nav aria-label="Main navigation" class="nav" id="primary-nav">
+<div class="nav-head">
+<span class="nav-head-title">Index</span>
+<button aria-label="Close the menu" class="nav-close" type="button">Close ✕</button>
+</div>
+<ul class="nav-list">
+<li><a href="3d-msfs.html">3D &amp; MSFS</a></li>
+<li><a href="video.html">Video</a></li>
+<li><a href="vibe-coding.html">Code &amp; AI</a></li>
+<li><a aria-current="page" href="pc-linux.html">PC &amp; Linux</a></li>
+<li><a href="contatti.html">Contact</a></li>
+</ul>
+<div class="nav-foot">
+<div aria-label="Theme" class="accent-switch" role="group">
+<span class="accent-switch-label">Theme</span>
+<button aria-label="Orange" aria-pressed="true" class="accent-dot" data-accent-set="orange" style="--dot:#ff7100" title="Orange" type="button"></button>
+<button aria-label="Green" aria-pressed="false" class="accent-dot" data-accent-set="green" style="--dot:#3dffa0" title="Green" type="button"></button>
+<button aria-label="Red" aria-pressed="false" class="accent-dot" data-accent-set="red" style="--dot:#ff3556" title="Red" type="button"></button>
+<button aria-label="Blue" aria-pressed="false" class="accent-dot" data-accent-set="blue" style="--dot:#3f7bff" title="Blue" type="button"></button>
+<button aria-label="Light blue" aria-pressed="false" class="accent-dot" data-accent-set="cyan" style="--dot:#2bd9ff" title="Light blue" type="button"></button>
+<button aria-label="Purple" aria-pressed="false" class="accent-dot" data-accent-set="violet" style="--dot:#b26bff" title="Purple" type="button"></button>
+</div>
+<div aria-label="Language" class="lang-switch" role="group"><a aria-label="Italiano" class="lang-option" data-lang="it" href="it/pc-linux.html" hreflang="it" lang="it"><svg aria-hidden="true" focusable="false" viewbox="0 0 30 20"><rect fill="#009246" height="20" width="10"></rect><rect fill="#fff" height="20" width="10" x="10"></rect><rect fill="#ce2b37" height="20" width="10" x="20"></rect></svg><span>ITA</span></a><a aria-current="true" aria-label="English" class="lang-option is-active" data-lang="en" href="pc-linux.html" hreflang="en" lang="en"><svg aria-hidden="true" focusable="false" viewbox="0 0 30 20"><rect fill="#012169" height="20" width="30"></rect><path d="M0 0l30 20M30 0L0 20" stroke="#fff" stroke-width="4"></path><path d="M0 0l30 20M30 0L0 20" stroke="#C8102E" stroke-width="2"></path><path d="M15 0v20M0 10h30" stroke="#fff" stroke-width="6"></path><path d="M15 0v20M0 10h30" stroke="#C8102E" stroke-width="3"></path></svg><span>ENG</span></a></div>
+</div>
+</nav>
+<button aria-controls="primary-nav" aria-expanded="false" class="nav-toggle" type="button">
+<span>Menu</span>
+<span aria-hidden="true" class="nav-toggle-icon"><span></span><span></span></span>
+</button>
+</div>
+</header>
+<main id="main">
+<header class="page-head">
+<div class="shell">
+<div class="page-head-grid">
+<div class="page-id">
+<nav aria-label="Path" class="breadcrumb">
+<a href="index.html">Home</a>
+<span aria-hidden="true">/</span>
+<span>Area 04</span>
+</nav>
+<p class="area-label">Systems</p>
+</div>
+<div class="page-title">
+<h1>PC Windows &amp; IT, <em>dual boot</em></h1>
+<p class="lead">Two systems, one workstation. Windows 11 for MSFS 2024 and Adobe; Nobara Linux 44 for daily work, rendering and development.</p>
+</div>
+</div>
+</div>
+</header>
+<div class="shell">
+<div class="layout">
+<aside class="side">
+<p class="side-label">On this page</p>
+<nav aria-label="Sections of the page" class="toc" data-toc="">
+<a href="#percorso">Background</a>
+<a href="#setup">Setup</a>
+<a href="#workflow">What / Where / Why</a>
+<a href="#lezioni">Lessons</a>
+</nav>
+</aside>
+<div class="content">
+<!-- BLOCCO: PERCORSO -->
+<section class="block" id="percorso">
+<div class="block-head">
+<h2>Windows as a starting point, Linux as the <em>evolution</em></h2>
+</div>
+<div class="block-body prose">
+<p>Years on Windows taught the method: clean builds, driver discipline, and the habit of documenting every change. It also exposed the limits: a closed stack, background services you don't need, and a system that can change under your feet.</p>
+<p>The move to Linux was practical, not ideological: a predictable environment, native tooling, and a desktop that doesn't move unless I move it. Nobara 44 is the daily driver because it is tuned for people who also work with graphics and games, without rebuilding the system by hand.</p>
+<p>The workstation is a deliberate dual boot. Windows keeps MSFS 2024 and the Adobe suite; Nobara covers daily work, rendering, development and gaming. Each system does its job, and neither is bent to imitate the other.</p>
+</div>
+</section>
+<!-- BLOCCO: SETUP -->
+<section class="block" id="setup">
+  <div class="block-head">
+    <h2>Current <em>setup</em></h2>
+    <p class="lead">Dual boot, October 2026. One workstation, two systems: hardware shared, software split by task.</p>
+  </div>
+  <div class="block-body">
+    <h3 class="setup-title">Hardware</h3>
+    <dl class="spec">
+      <div class="spec-row"><dt>CPU</dt><dd>AMD Ryzen 7 7700X · 8 cores</dd></div>
+      <div class="spec-row"><dt>GPU</dt><dd>NVIDIA GeForce RTX 3080 Ti · 12 GB</dd></div>
+      <div class="spec-row"><dt>RAM</dt><dd>32 GB DDR5-6000 CL36 · 2 × 16 GB</dd></div>
+      <div class="spec-row"><dt>Motherboard</dt><dd>MSI PRO B650M-A WIFI</dd></div>
+      <div class="spec-row"><dt>Storage</dt><dd>4 × 2 TB SSD · 1 NVMe + 3 SATA</dd></div>
+    </dl>
+
+    <div class="setup-systems">
+      <div class="setup-system">
+        <h3 class="setup-title">Linux — <em>Nobara 44</em></h3>
+        <dl class="spec">
+          <div class="spec-row"><dt>OS</dt><dd>Nobara Linux 44 · KDE Plasma</dd></div>
+          <div class="spec-row"><dt>GPU drivers</dt><dd>NVIDIA proprietary, current branch, aligned with the kernel.</dd></div>
+          <div class="spec-row"><dt>Filesystem</dt><dd>Btrfs with snapshots on the OS drive; ext4 for applications and games.</dd></div>
+          <div class="spec-row"><dt>Shell</dt><dd>Bash with a Starship prompt, curated aliases and functions, fzf + zoxide.</dd></div>
+          <div class="spec-row"><dt>IDE</dt><dd>VS Code — Git Graph and GitLens; terminal-first workflow for AI agents.</dd></div>
+        </dl>
+      </div>
+
+      <div class="setup-system">
+        <h3 class="setup-title">Windows — <em>11 26H2</em></h3>
+        <dl class="spec">
+          <div class="spec-row"><dt>OS</dt><dd>Windows 11 26H2 · Home, debloated.</dd></div>
+          <div class="spec-row"><dt>GPU drivers</dt><dd>NVIDIA Game Ready, current branch.</dd></div>
+          <div class="spec-row"><dt>Filesystem</dt><dd>NTFS.</dd></div>
+          <div class="spec-row"><dt>Shell</dt><dd>PowerShell 7 + Windows Terminal.</dd></div>
+          <div class="spec-row"><dt>Toolchain</dt><dd>MSFS 2024 SDK, Adobe Creative Cloud (Substance, Premiere, After Effects), VS Code.</dd></div>
+          <div class="spec-row"><dt>Maintenance</dt><dd>Minimal background services, no third-party antivirus, updates under control.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- BLOCCO: WORKFLOW — cosa, dove e perché -->
+<section class="block" id="workflow">
+  <div class="block-head">
+    <h2>What, where and <em>why</em></h2>
+    <p class="lead">The right tool in the right environment. A dual boot is not a compromise; it is a deliberate split.</p>
+  </div>
+  <div class="block-body wide">
+    <div class="workflow">
+      <article class="workflow-panel">
+        <h3 class="workflow-where">Windows <em>11</em></h3>
+        <div class="workflow-block">
+          <span class="workflow-label">What</span>
+          <p class="workflow-what">MSFS 2024 + SDK · Substance 3D Painter / Sampler · Premiere Pro · After Effects · VS Code · Blender (MSFS assets, occasional)</p>
+        </div>
+        <div class="workflow-block">
+          <span class="workflow-label">Why</span>
+          <p class="workflow-why">A single Adobe tool makes Windows mandatory, and the MSFS 2024 SDK and toolchain are Windows-only; Proton adds friction and unsupported edges. Blender itself is better on Linux, but the surrounding pipeline is not.</p>
+        </div>
+      </article>
+
+      <article class="workflow-panel">
+        <h3 class="workflow-where"><em>Nobara</em> Linux</h3>
+        <div class="workflow-block">
+          <span class="workflow-label">What</span>
+          <p class="workflow-what">DaVinci Resolve Studio · Blender (rendering and non-game assets) · 2D graphics · Gaming · VS Code · Linux builds</p>
+        </div>
+        <div class="workflow-block">
+          <span class="workflow-label">Why</span>
+          <p class="workflow-why">Daily driver and leisure: predictable updates, full control, open source where possible. Resolve Studio needs care but is excellent once configured; Linux builds and Flatpak are straightforward; gaming via Proton is smooth, with occasional compromises.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="note">
+      <span class="note-title">A design choice</span>
+      <p>Windows and Linux do different jobs. The workstation is arranged so neither has to imitate the other: no hacks, no half-working toolchains.</p>
+    </div>
+  </div>
+</section>
+<!-- BLOCCO: LEZIONI -->
+<section class="block" id="lezioni">
+<div class="block-head">
+<h2>What I <em>learned</em></h2>
+</div>
+<div class="block-body">
+<ol class="steps">
+<li class="step">
+<span class="step-n">1</span>
+<h3>The backup comes first</h3>
+<p>I lost years of work to a format: years of music the first time, years of work the second. My mistake, paid in full. Since then I am the most careful person I know on the subject: a verified copy of the projects, a second copy off the machine, and only then the format. It has nothing to do with the operating system: a wrong click, an update, a failing disk are enough. A backup that has never been restored is only a hope.</p>
+</li>
+<li class="step">
+<span class="step-n">2</span>
+<h3>Know the difference</h3>
+<p>On Linux, kernel and drivers move together: one channel, one update, one rollback. On Windows they don't, and a blind update can leave a driver half-installed. Before updating I check the reports — forums, vendor notes, other people's tests — for incompatibilities with the software I work with, graphical glitches, thermal throttling. Ten minutes of reading is the difference between an update and a day of troubleshooting.</p>
+</li>
+<li class="step">
+<span class="step-n">3</span>
+<h3>Build your own tools</h3>
+<p>In 2026 writing a small tool is cheap. On the other hand, opening the simulator, loading the project, compiling, testing, closing, changing one value, and starting again: that loop eats hours. Five hours on a helper script pay back in a week; a week on a tool that holds up pays back for years. Automate the passage you repeat, not the one you enjoy.</p>
+</li>
+<li class="step">
+<span class="step-n">4</span>
+<h3>The other system is not a guest</h3>
+<p>This is not a Windows machine with Linux installed: it is two systems on one workstation, each with its own disk, its own boot and its own job. Moving daily tasks to Linux is the best technical decision I have made: predictable updates, native tools, full control. Windows stays where it is indispensable.</p>
+</li>
+<li class="step">
+<span class="step-n">5</span>
+<h3>Measure, don't guess</h3>
+<p>Export times, temperatures, VRAM: the numbers say whether the bottleneck is the hardware, the driver or the project. A profile before and after every change turns opinions into evidence.</p>
+</li>
+</ol>
+</div>
+</section>
+
+</div>
+</div>
+
+</div>
+</main>
+<!-- FOOTER — vedi index.html -->
+<footer class="site-footer">
+<div class="shell">
+<div class="footer-grid">
+<div class="footer-brand">
+<a class="brand" href="index.html">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-name">Cristian Da Ros</span>
+</a>
+<p>
+          3D modeling and real time for MSFS 2024, video production, code and systems.
+          Static site, handmade.
+        </p>
+</div>
+<nav aria-label="Areas of the site" class="footer-col">
+<h2>Areas</h2>
+<ul>
+<li><a href="3d-msfs.html">3D &amp; MSFS 2024</a></li>
+<li><a href="video.html">Video Production</a></li>
+<li><a href="vibe-coding.html">Code &amp; AI</a></li>
+<li><a href="pc-linux.html">PC &amp; Linux</a></li>
+</ul>
+</nav>
+<div class="footer-col">
+<h2>Contact</h2>
+<ul>
+<li><a href="mailto:chris.daros86@gmail.com">chris.daros86@gmail.com</a></li>
+<li><a href="contatti.html">Contact page</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-base">
+<p>© <span data-year="">2026</span> Cristian Da Ros</p>
+<p>HTML · CSS · JS — no CMS, no tracker</p>
+</div>
+<p aria-hidden="true" class="footer-name">Cristian Da Ros</p>
+</div>
+</footer>
+<script defer="" src="assets/js/main.js"></script>
+</body>
+</html>

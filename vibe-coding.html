@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html data-accent="orange" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Agentic Coding, Prompt Engineering — Cristian Da Ros</title>
+<meta content="Agentic coding and prompt engineering: Python tools, AI agents and automations that remove repetitive work. Includes a commercial Blender addon for MSFS 2024." name="description"/>
+<meta content="dark" name="color-scheme"/>
+<meta content="#08090b" name="theme-color"/>
+<meta content="article" property="og:type"/>
+<meta content="Agentic Coding, Prompt Engineering" property="og:title"/>
+<meta content="Python as a lingua franca, language models as collaborators. Tools that remove repetitive work." property="og:description"/>
+<meta content="en_US" property="og:locale"/>
+<link href="assets/favicon.svg" id="favicon-svg" rel="icon" type="image/svg+xml"/>
+<link href="favicon.ico" rel="icon" sizes="32x32"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<script>
+  (function () {
+    try {
+      var a = localStorage.getItem("accento");
+      var ok = ["orange", "green", "red", "blue", "cyan", "violet"];
+      if (a && ok.indexOf(a) > -1) {
+        document.documentElement.setAttribute("data-accent", a);
+      }
+    } catch (e) {}
+  })();
+</script>
+<link rel="canonical" href="https://cristiandaros.altervista.org/vibe-coding.html">
+<link rel="alternate" hreflang="en" href="https://cristiandaros.altervista.org/vibe-coding.html">
+<link rel="alternate" hreflang="it" href="https://cristiandaros.altervista.org/it/vibe-coding.html">
+<link rel="alternate" hreflang="x-default" href="https://cristiandaros.altervista.org/vibe-coding.html">
+<meta content="noindex,nofollow" name="robots"/>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<!-- HEADER — vedi index.html -->
+<header class="site-header">
+<div class="shell header-inner">
+<a class="brand" href="index.html">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-name">Cristian Da Ros</span>
+</a>
+<nav aria-label="Main navigation" class="nav" id="primary-nav">
+<div class="nav-head">
+<span class="nav-head-title">Index</span>
+<button aria-label="Close the menu" class="nav-close" type="button">Close ✕</button>
+</div>
+<ul class="nav-list">
+<li><a href="3d-msfs.html">3D &amp; MSFS</a></li>
+<li><a href="video.html">Video</a></li>
+<li><a aria-current="page" href="vibe-coding.html">Code &amp; AI</a></li>
+<li><a href="pc-linux.html">PC &amp; Linux</a></li>
+<li><a href="contatti.html">Contact</a></li>
+</ul>
+<div class="nav-foot">
+<div aria-label="Theme" class="accent-switch" role="group">
+<span class="accent-switch-label">Theme</span>
+<button aria-label="Orange" aria-pressed="true" class="accent-dot" data-accent-set="orange" style="--dot:#ff7100" title="Orange" type="button"></button>
+<button aria-label="Green" aria-pressed="false" class="accent-dot" data-accent-set="green" style="--dot:#3dffa0" title="Green" type="button"></button>
+<button aria-label="Red" aria-pressed="false" class="accent-dot" data-accent-set="red" style="--dot:#ff3556" title="Red" type="button"></button>
+<button aria-label="Blue" aria-pressed="false" class="accent-dot" data-accent-set="blue" style="--dot:#3f7bff" title="Blue" type="button"></button>
+<button aria-label="Light blue" aria-pressed="false" class="accent-dot" data-accent-set="cyan" style="--dot:#2bd9ff" title="Light blue" type="button"></button>
+<button aria-label="Purple" aria-pressed="false" class="accent-dot" data-accent-set="violet" style="--dot:#b26bff" title="Purple" type="button"></button>
+</div>
+<div aria-label="Language" class="lang-switch" role="group"><a aria-label="Italiano" class="lang-option" data-lang="it" href="it/vibe-coding.html" hreflang="it" lang="it"><svg aria-hidden="true" focusable="false" viewbox="0 0 30 20"><rect fill="#009246" height="20" width="10"></rect><rect fill="#fff" height="20" width="10" x="10"></rect><rect fill="#ce2b37" height="20" width="10" x="20"></rect></svg><span>ITA</span></a><a aria-current="true" aria-label="English" class="lang-option is-active" data-lang="en" href="vibe-coding.html" hreflang="en" lang="en"><svg aria-hidden="true" focusable="false" viewbox="0 0 30 20"><rect fill="#012169" height="20" width="30"></rect><path d="M0 0l30 20M30 0L0 20" stroke="#fff" stroke-width="4"></path><path d="M0 0l30 20M30 0L0 20" stroke="#C8102E" stroke-width="2"></path><path d="M15 0v20M0 10h30" stroke="#fff" stroke-width="6"></path><path d="M15 0v20M0 10h30" stroke="#C8102E" stroke-width="3"></path></svg><span>ENG</span></a></div>
+</div>
+</nav>
+<button aria-controls="primary-nav" aria-expanded="false" class="nav-toggle" type="button">
+<span>Menu</span>
+<span aria-hidden="true" class="nav-toggle-icon"><span></span><span></span></span>
+</button>
+</div>
+</header>
+<a class="portfolio-tab" data-portfolio-tab href="portfolio/code-ai.html">
+<span class="portfolio-tab-label">Portfolio</span>
+<span aria-hidden="true" class="portfolio-tab-arrow">→</span>
+</a>
+<main id="main">
+<header class="page-head">
+<div class="shell">
+<div class="page-head-grid">
+<div class="page-id">
+<nav aria-label="Path" class="breadcrumb">
+<a href="index.html">Home</a>
+<span aria-hidden="true">/</span>
+<span>Area 03</span>
+</nav>
+<p class="area-label">Code and models</p>
+</div>
+<div class="page-title page-title--with-portfolio">
+<div class="page-title-text">
+<h1><em>Agentic</em> Coding, Prompt Engineering</h1>
+<p class="lead">Writing tools to maximize efficiency. Python as a lingua franca, LLMs as collaborators. Distilling knowledge into a finished tool, supported by current technology.</p>
+</div>
+<a class="page-portfolio" data-page-portfolio href="portfolio/code-ai.html">
+<span class="page-portfolio-label">Selected work</span>
+<span class="page-portfolio-title">Portfolio</span>
+<span aria-hidden="true" class="page-portfolio-arrow">→</span>
+</a>
+</div>
+</div>
+</div>
+</header>
+<div class="shell">
+<div class="layout">
+<aside class="side">
+<p class="side-label">On this page</p>
+<nav aria-label="Sections of the page" class="toc" data-toc="">
+<a href="#metodo">Method</a>
+<a href="#prompt">Prompt</a>
+<a href="#stack">Stack</a>
+</nav>
+</aside>
+<div class="content">
+<!-- BLOCCO: METODO -->
+<section class="block" id="metodo">
+<div class="block-head">
+<h2>How I <em>work</em></h2>
+</div>
+<div class="block-body prose">
+<p>A tool is worth writing when the work it removes is worth the time it costs. It can be a two-hour ToDo app or a suite that takes months: the criterion is not size, it is the efficiency left behind. Code is a means, not the result.</p>
+<p>With agents I work like this: I listen to the advice, then I verify it. If the proposed solution does not match the numbers, either the numbers or the solution is wrong, and it is worth finding out which. On the DayZ launcher the agent first handed me a list of 2,000 servers, then an inflated 105,000. I checked two other launchers: they sat between 40,000 and 60,000. I rebuilt the sweep, the filters and the server-farm rules until the number held — and it is still not perfect.</p>
+<p>Knowing your limits is a strength, not a weakness. In the <a href="portfolio/ln-lods-pro.html">LODs plugin</a> the final vertex count is exact because it replicates the MSFS 2024 export pipeline, which starts from the Khronos glTF exporter. A DayZ launcher is different: server farms change method, server names are human variables that cannot be used as an absolute filter, and a rule like "full server + queue = authentic" rejects good servers just because they are full at that moment. The design choice is to minimize collateral damage, not to guarantee 100%.</p>
+<div class="note">
+<span class="note-title">Keys and data</span>
+<p>API keys live in a <code>.env</code> file excluded from the repository. No secrets in prompts, logs or screenshots.</p>
+</div>
+<div class="note">
+<span class="note-title">Human review</span>
+<p>Read the output of a model before running it, especially if it touches files or system commands. Automation yes, blind no.</p>
+</div>
+<div class="note">
+<span class="note-title">Licenses</span>
+<p>Generated code, copied snippets and dependencies: each component is verified before ending up in a distributed project.</p>
+</div>
+</div>
+</section>
+<!-- BLOCCO: PROMPT -->
+<section class="block" id="prompt">
+<div class="block-head">
+<h2>Prompt <em>engineering</em></h2>
+<p class="lead">A prompt is not a magic formula: it is a directive. You cannot write about something you know nothing about without doing research. Knowing the structure of what you are building, and the basics of how the tool works, makes a prompt closer to a detailed technical specification — and it works every time. Better.</p>
+</div>
+<div class="block-body">
+<dl class="spec">
+<div class="spec-row"><dt>Objective</dt><dd>Limit token waste and get more done in fewer passes.</dd></div>
+<div class="spec-row"><dt>Constraints</dt><dd>Project-specific, with hard limits and clear boundaries at all times.</dd></div>
+<div class="spec-row"><dt>Context</dt><dd>Audit and plan files always up to date. Tell the agent, precisely, what to write and when: not only in code, but in the textual structure of the project.</dd></div>
+<div class="spec-row"><dt>Examples</dt><dd>When technical knowledge is incomplete and research does not close the gap, examples give the agent context in pieces. Few, but important. The agent is an extension of the mind.</dd></div>
+<div class="spec-row"><dt>Iteration</dt><dd>Every cycle ends with plan and audit updated: the next step starts from there, not from chat memory.</dd></div>
+</dl>
+<pre class="code"><span class="c"># Blender add-on — implement a feature already specified</span>
+<span class="k">Role</span>        Blender add-on developer
+<span class="k">Objective</span>   Implement the NLA-strip iteration feature described in plan.md
+<span class="k">Context</span>     MSFS 2024 exporter pipeline. plan.md holds the spec, the official
+            documentation links and the decisions taken so far; audit.md holds the
+            change history. Read them before writing; do not restate them.
+<span class="k">Constraints</span> - Extend bpy.types.NlaStrip properties with the fields in plan.md.
+              No parallel list for the UI.
+            - Replace the second export button with a monkey patch that intercepts
+              the XML creation and edits it: the standard MSFS exporter pipeline
+              stays the only path.
+            - Create the folder structure only; write no files yet.
+            - If a requirement is unclear, ask before writing.
+<span class="k">Outputs</span>     Code changes, plus plan.md and audit.md updated in the same pass
+<span class="k">Criterion</span>   The standard exporter produces the edited XML with no extra manual
+            step; plan and audit reflect every change.</pre>
+</div>
+</section>
+<!-- BLOCCO: STACK -->
+<section class="block" id="stack">
+<div class="block-head">
+<h2>Stack</h2>
+</div>
+<div class="block-body">
+<dl class="spec">
+<div class="spec-row"><dt>Python</dt><dd>Primary language for scripts, automations and internal tools.</dd></div>
+<div class="spec-row"><dt>Blender API</dt><dd>Add-ons, operators and UI for the 3D pipeline.</dd></div>
+<div class="spec-row"><dt>uv / venv</dt><dd>Isolated environments and reproducible dependencies, with lockfiles in the repository.</dd></div>
+<div class="spec-row"><dt>VS Code</dt><dd>Editor, debugger and Git integration; extensions kept to a minimum.</dd></div>
+<div class="spec-row"><dt>Git</dt><dd>Versioning even for small projects: chronology is documentation.</dd></div>
+<div class="spec-row"><dt>pytest</dt><dd>Tests on critical steps, especially parsing and file transformations.</dd></div>
+<div class="spec-row"><dt>LLM API</dt><dd>Direct calls with explicit parameters, request logs and costs under control.</dd></div>
+<div class="spec-row"><dt>Agents</dt><dd>Agentic workflows with explicit context, diffs and human review; no blind execution.</dd></div>
+</dl>
+</div>
+</section>
+
+</div>
+</div>
+
+</div>
+</main>
+<!-- FOOTER — vedi index.html -->
+<footer class="site-footer">
+<div class="shell">
+<div class="footer-grid">
+<div class="footer-brand">
+<a class="brand" href="index.html">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-name">Cristian Da Ros</span>
+</a>
+<p>
+          3D modeling and real time for MSFS 2024, video production, code and systems.
+          Static site, handmade.
+        </p>
+</div>
+<nav aria-label="Areas of the site" class="footer-col">
+<h2>Areas</h2>
+<ul>
+<li><a href="3d-msfs.html">3D &amp; MSFS 2024</a></li>
+<li><a href="video.html">Video Production</a></li>
+<li><a href="vibe-coding.html">Code &amp; AI</a></li>
+<li><a href="pc-linux.html">PC &amp; Linux</a></li>
+</ul>
+</nav>
+<div class="footer-col">
+<h2>Contact</h2>
+<ul>
+<li><a href="mailto:chris.daros86@gmail.com">chris.daros86@gmail.com</a></li>
+<li><a href="contatti.html">Contact page</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-base">
+<p>© <span data-year="">2026</span> Cristian Da Ros</p>
+<p>HTML · CSS · JS — no CMS, no tracker</p>
+</div>
+<p aria-hidden="true" class="footer-name">Cristian Da Ros</p>
+</div>
+</footer>
+<script defer="" src="assets/js/main.js"></script>
+</body>
+</html>

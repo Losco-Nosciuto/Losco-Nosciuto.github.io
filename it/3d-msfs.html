@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="it" data-accent="orange">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3D Modeling &amp; Real Time in MSFS 2024 — Cristian Da Ros</title>
+<meta name="description" content="Da un'antenna Duga mancante sopra Chernobyl agli aeroporti payware per MSFS: Blender, Substance 3D Painter, Mixamo, Cascadeur, LOD e una sola ossessione — l'immersione.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#08090b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3D Modeling &amp; Real Time in MSFS 2024">
+<meta property="og:description" content="Dalle aviosuperfici freeware agli aeroporti payware Microsoft: pipeline, strumenti e immersione.">
+<meta property="og:locale" content="it_IT">
+<link rel="icon" type="image/svg+xml" id="favicon-svg" href="../assets/favicon.svg">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+  (function () {
+    try {
+      var a = localStorage.getItem("accento");
+      var ok = ["orange", "green", "red", "blue", "cyan", "violet"];
+      if (a && ok.indexOf(a) > -1) {
+        document.documentElement.setAttribute("data-accent", a);
+      }
+    } catch (e) {}
+  })();
+</script>
+<link rel="canonical" href="https://cristiandaros.altervista.org/it/3d-msfs.html">
+<link rel="alternate" hreflang="en" href="https://cristiandaros.altervista.org/3d-msfs.html">
+<link rel="alternate" hreflang="it" href="https://cristiandaros.altervista.org/it/3d-msfs.html">
+<link rel="alternate" hreflang="x-default" href="https://cristiandaros.altervista.org/3d-msfs.html">
+<meta content="noindex,nofollow" name="robots"/>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Vai al contenuto</a>
+
+<!-- HEADER — vedi index.html -->
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <span class="brand-name">Cristian Da Ros</span>
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigazione principale">
+      <div class="nav-head">
+        <span class="nav-head-title">Indice</span>
+        <button class="nav-close" type="button" aria-label="Chiudi il menu">Chiudi ✕</button>
+      </div>
+
+      <ul class="nav-list">
+        <li><a href="3d-msfs.html" aria-current="page">3D &amp; MSFS</a></li>
+        <li><a href="video.html">Video</a></li>
+        <li><a href="vibe-coding.html">Code &amp; AI</a></li>
+        <li><a href="pc-linux.html">PC &amp; Linux</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+
+      <div class="nav-foot">
+        <div class="accent-switch" role="group" aria-label="Tema">
+          <span class="accent-switch-label">Tema</span>
+          <button class="accent-dot" type="button" data-accent-set="orange" style="--dot:#ff7100" title="Arancio" aria-label="Arancio" aria-pressed="true"></button>
+          <button class="accent-dot" type="button" data-accent-set="green" style="--dot:#3dffa0" title="Verde" aria-label="Verde" aria-pressed="false"></button>
+          <button class="accent-dot" type="button" data-accent-set="red" style="--dot:#ff3556" title="Rosso" aria-label="Rosso" aria-pressed="false"></button>
+          <button class="accent-dot" type="button" data-accent-set="blue" style="--dot:#3f7bff" title="Blu" aria-label="Blu" aria-pressed="false"></button>
+          <button class="accent-dot" type="button" data-accent-set="cyan" style="--dot:#2bd9ff" title="Azzurro" aria-label="Azzurro" aria-pressed="false"></button>
+          <button class="accent-dot" type="button" data-accent-set="violet" style="--dot:#b26bff" title="Viola" aria-label="Viola" aria-pressed="false"></button>
+        </div>
+<div class="lang-switch" role="group" aria-label="Language"><a class="lang-option is-active" href="3d-msfs.html" hreflang="it" lang="it" data-lang="it" aria-label="Italiano" aria-current="true"><svg viewBox="0 0 30 20" aria-hidden="true" focusable="false"><rect width="10" height="20" fill="#009246"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#ce2b37"/></svg><span>ITA</span></a><a class="lang-option" href="../3d-msfs.html" hreflang="en" lang="en" data-lang="en" aria-label="English"><svg viewBox="0 0 30 20" aria-hidden="true" focusable="false"><rect width="30" height="20" fill="#012169"/><path d="M0 0l30 20M30 0L0 20" stroke="#fff" stroke-width="4"/><path d="M0 0l30 20M30 0L0 20" stroke="#C8102E" stroke-width="2"/><path d="M15 0v20M0 10h30" stroke="#fff" stroke-width="6"/><path d="M15 0v20M0 10h30" stroke="#C8102E" stroke-width="3"/></svg><span>ENG</span></a></div>
+      </div>
+    </nav>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span>Menu</span>
+      <span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span></span>
+    </button>
+  </div>
+</header>
+<a class="portfolio-tab" data-portfolio-tab href="portfolio/3d-msfs.html">
+<span class="portfolio-tab-label">Portfolio</span>
+<span aria-hidden="true" class="portfolio-tab-arrow">→</span>
+</a>
+<main id="main">
+  <header class="page-head">
+    <div class="shell">
+      <div class="page-head-grid">
+        <div class="page-id">
+          <nav class="breadcrumb" aria-label="Percorso">
+            <a href="index.html">Home</a>
+            <span aria-hidden="true">/</span>
+            <span>Area 01</span>
+          </nav>
+          <p class="area-label">Simulazione</p>
+        </div>
+
+        <div class="page-title page-title--with-portfolio">
+          <div class="page-title-text">
+            <h1>3D Modeling &amp; <em>Real Time</em> in MSFS 2024</h1>
+            <p class="lead">
+              Da un'antenna Duga mancante sopra Chernobyl agli aeroporti payware per
+              Microsoft Flight Simulator. Blender, Substance, LOD e una sola ossessione:
+              l'immersione.
+            </p>
+          </div>
+          <a class="page-portfolio" data-page-portfolio href="portfolio/3d-msfs.html">
+            <span class="page-portfolio-label">Lavori scelti</span>
+            <span class="page-portfolio-title">Portfolio</span>
+            <span aria-hidden="true" class="page-portfolio-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="shell">
+    <div class="layout">
+
+      <aside class="side">
+        <p class="side-label">In questa pagina</p>
+        <nav class="toc" data-toc aria-label="Sezioni della pagina">
+          <a href="#storia">Storia</a>
+          <a href="#pipeline">Pipeline</a>
+          <a href="#strumenti">Strumenti</a>
+          <a href="#immersione">Immersione</a>
+          <a href="#appunti">Appunti</a>
+        </nav>
+      </aside>
+
+      <div class="content">
+
+        <!-- BLOCCO: STORIA -->
+        <section class="block" id="storia">
+          <div class="block-head">
+            <h2>Da Chernobyl al <em>simulatore</em></h2>
+          </div>
+
+          <div class="block-body prose">
+            <p>
+              MSFS 2020, un volo sopra Chernobyl. L'antenna Duga non c'era. Non avevo mai
+              aperto Blender, ma volevo quel radar a terra più di quanto volessi imparare un
+              programma nuovo. I primi mesi sono stati tentativi ed errori: tutorial, appunti
+              e la Ciambella di Blender Guru, che non ha niente a che fare con gli asset
+              game-ready ma insegna come ragiona il programma.
+            </p>
+            <p>
+              Il mio unico background 3D veniva dalla fine degli anni Novanta, Unreal Editor
+              per Unreal e Unreal Tournament: niente UV unwrapping, una texture per poligono
+              o gruppo di poligoni. Ho iniziato così — molte texture singole, alcune in 2K,
+              niente trim sheet, niente unwrap — e ho pubblicato due mod freeware caotiche ma
+              funzionanti per le due aviosuperfici più vicine a casa:
+              <a href="https://www.nexusmods.com/microsoftflightsimulator/mods/188" rel="noopener" target="_blank">Chavez-Marini a Masera</a>
+              e <a href="https://www.nexusmods.com/microsoftflightsimulator/mods/499" rel="noopener" target="_blank">Il Picchio a Borgo Ticino</a>.
+            </p>
+            <p>
+              Poi è arrivato l'unwrapping, un tutorial alla volta, e il texturing: prima
+              Quixel Mixer, poi Adobe 3D Painter, a malavoglia e con parecchi mal di testa.
+              Painter è potentissimo ed estremamente articolato; non ti lascia urlare
+              "user friendly". Ma è stato un buon affare.
+            </p>
+            <p>
+              Da lì la collaborazione con Microsoft e la partnership per MSFS, poi MSFS 2024.
+              Tre aeroporti payware — RK1 Kavik River Camp, EGLK BlackBushe, LFBP Pau Pyrénées —
+              e due progetti mai finiti in tempo, per colpa di
+              <a href="pc-linux.html#lezioni">quel disco che ho formattato per errore</a>.
+              C'è stato un periodo di burnout e senso di sconfitta. Poi sono tornato su VCO VFR,
+              più motivato di prima.
+            </p>
+
+            <dl class="spec">
+              <div class="spec-row">
+                <dt>Freeware</dt>
+                <dd>Chavez-Marini, Masera · Il Picchio, Borgo Ticino</dd>
+              </div>
+              <div class="spec-row">
+                <dt>Payware</dt>
+                <dd>RK1 Kavik River Camp · EGLK BlackBushe · LFBP Pau Pyrénées</dd>
+              </div>
+              <div class="spec-row">
+                <dt>In corso</dt>
+                <dd>VCO VFR</dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+
+        <!-- BLOCCO: PIPELINE -->
+        <section class="block" id="pipeline">
+          <div class="block-head">
+            <h2>Sei passaggi, sempre nello stesso <em>ordine</em></h2>
+            <p class="lead">
+              La sequenza conta più dell'abilità nel singolo passaggio: saltare la scala o i
+              LOD si paga in simulatore, con gli interessi.
+            </p>
+          </div>
+
+          <div class="block-body">
+            <ol class="steps">
+              <li class="step">
+                <span class="step-n">1</span>
+                <h3>Reference e blackboard</h3>
+                <p>PureRef, foto, carte, dati satellitari e screenshot in-sim. Tutto su una board prima di aprire Blender.</p>
+              </li>
+              <li class="step">
+                <span class="step-n">2</span>
+                <h3>Blockout e scala</h3>
+                <p>Volumi reali, assi e pivot corretti. Se la scala è sbagliata, nessuna texture la salva.</p>
+              </li>
+              <li class="step">
+                <span class="step-n">3</span>
+                <h3>Modeling e UV</h3>
+                <p>Blender, UV Packmaster 4 e la suite interna: densità texture, UV pulite, niente spazio sprecato.</p>
+              </li>
+              <li class="step">
+                <span class="step-n">4</span>
+                <h3>Texturing</h3>
+                <p>Substance 3D Painter e Sampler. Un plugin Python custom porta le immagini dal web direttamente nel progetto; gli spaghetti di nodi restano al minimo.</p>
+              </li>
+              <li class="step">
+                <span class="step-n">5</span>
+                <h3>Animazione</h3>
+                <p>Mixamo per circa l'80% delle animazioni dei personaggi; Cascadeur per le correzioni e le rare handmade, dove serve immersività.</p>
+              </li>
+              <li class="step">
+                <span class="step-n">6</span>
+                <h3>Export, LOD e test</h3>
+                <p>SDK di MSFS 2024, glTF e LN LODs Pro per il debug dei LOD in Blender. Poi test in-sim a distanze, orari e meteo diversi.</p>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- BLOCCO: STRUMENTI -->
+        <section class="block" id="strumenti">
+          <div class="block-head">
+            <h2>Con cosa <em>lavoro</em></h2>
+          </div>
+
+          <div class="block-body">
+            <dl class="spec">
+              <div class="spec-row">
+                <dt>PureRef</dt>
+                <dd>Board di reference: foto, carte, dati satellitari, screenshot in-sim.</dd>
+              </div>
+              <div class="spec-row">
+                <dt>Blender</dt>
+                <dd>Modeling, UV e animazione. UV Packmaster 4 e la suite interna, incluso LN LODs Pro per il debug dei LOD MSFS.</dd>
+              </div>
+              <div class="spec-row">
+                <dt>Adobe 3D Painter</dt>
+                <dd>Texturing. Potente e articolato; un plugin Python custom abilita il copia-incolla dal web e da Google Images.</dd>
+              </div>
+              <div class="spec-row">
+                <dt>Adobe 3D Sampler</dt>
+                <dd>Materiali e scan: la strada veloce quando non serve un setup di nodi completo.</dd>
+              </div>
+              <div class="spec-row">
+                <dt>Mixamo</dt>
+                <dd>Circa l'80% delle animazioni dei personaggi.</dd>
+              </div>
+              <div class="spec-row">
+                <dt>Cascadeur</dt>
+                <dd>Correzioni alle animazioni Mixamo e le rare handmade, dove serve immersività.</dd>
+              </div>
+              <div class="spec-row">
+                <dt>MSFS 2024 SDK</dt>
+                <dd>Export, gruppi LOD, validazione del pacchetto e test in-sim.</dd>
+              </div>
+              <div class="spec-row">
+                <dt>glTF / GLB</dt>
+                <dd>Formato di scambio: gerarchia, pivot, materiali e nomi dei nodi.</dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+
+        <!-- BLOCCO: IMMERSIONE -->
+        <section class="block" id="immersione">
+          <div class="block-head">
+            <h2>Immersion, in <em>Simulation</em></h2>
+          </div>
+
+          <div class="block-body prose">
+            <p>
+              L'immersione è la parola chiave. Un asset tecnicamente corretto non basta:
+              scala, usura, luce e animazione devono convincere l'occhio prima dei dettagli.
+              L'obiettivo non è mostrare il modello; è far sembrare vero il posto.
+            </p>
+            <p>
+              È lo standard che tengo in LNDesign, da un'aviosuperficie freeware a un aeroporto
+              payware: la stessa cura sulle segnature della pista, sulle recinzioni, sulla terra
+              dove girano i mezzi, su come sta in piedi un personaggio. Se l'utente nota l'asset,
+              ho già perso.
+            </p>
+            <p>
+              <a href="https://lndesignfs.altervista.org/" rel="noopener" target="_blank">LNDesign</a>
+              è dove vive questo standard, dal freeware al payware.
+            </p>
+          </div>
+        </section>
+
+        <!-- BLOCCO: APPUNTI -->
+        <section class="block" id="appunti">
+          <div class="block-head">
+            <h2>Appunti e <em>risorse</em></h2>
+          </div>
+
+          <div class="block-body">
+            <ul class="link-list">
+              <li><a href="https://docs.flightsimulator.com/" rel="noopener" target="_blank"><span>Microsoft Flight Simulator — SDK Documentation</span><span aria-hidden="true" class="link-arrow">↗</span></a></li>
+              <li><a href="https://docs.blender.org/manual/en/latest/" rel="noopener" target="_blank"><span>Blender Manual</span><span aria-hidden="true" class="link-arrow">↗</span></a></li>
+              <li><a href="https://registry.khronos.org/glTF/" rel="noopener" target="_blank"><span>glTF 2.0 Specification</span><span aria-hidden="true" class="link-arrow">↗</span></a></li>
+              <li><a href="https://devsupport.flightsimulator.com/" rel="noopener" target="_blank"><span>MSFS Developer Support</span><span aria-hidden="true" class="link-arrow">↗</span></a></li>
+              <li><a href="index.html#metodo"><span>Il metodo di lavoro</span><span aria-hidden="true" class="link-arrow">→</span></a></li>
+            </ul>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER — vedi index.html -->
+<footer class="site-footer">
+  <div class="shell">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="brand-name">Cristian Da Ros</span>
+        </a>
+        <p>
+          3D modeling e real time per MSFS 2024, produzione video, codice e sistemi.
+          Sito statico, fatto a mano.
+        </p>
+      </div>
+
+      <nav class="footer-col" aria-label="Aree del sito">
+        <h2>Aree</h2>
+        <ul>
+          <li><a href="3d-msfs.html">3D &amp; MSFS 2024</a></li>
+          <li><a href="video.html">Produzione video</a></li>
+          <li><a href="vibe-coding.html">Code &amp; AI</a></li>
+          <li><a href="pc-linux.html">PC &amp; Linux</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <h2>Contatti</h2>
+        <ul>
+          <li><a href="mailto:chris.daros86@gmail.com">chris.daros86@gmail.com</a></li>
+          <li><a href="contatti.html">Pagina contatti</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-base">
+      <p>© <span data-year>2026</span> Cristian Da Ros</p>
+      <p>HTML · CSS · JS — nessun CMS, nessun tracker</p>
+    </div>
+
+    <p class="footer-name" aria-hidden="true">Cristian Da Ros</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

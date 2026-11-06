@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html data-accent="orange" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Cristian Da Ros — 3D, real time, video, code</title>
+<meta content="Portfolio of Cristian Da Ros: 3D modeling and real time for MSFS 2024, video production with Premiere Pro, After Effects and DaVinci Resolve, agentic coding in Python and Windows/Linux systems." name="description"/>
+<meta content="dark" name="color-scheme"/>
+<meta content="#08090b" name="theme-color"/>
+<meta content="website" property="og:type"/>
+<meta content="Cristian Da Ros — 3D, real time, video, code" property="og:title"/>
+<meta content="3D and real time for MSFS 2024, video production, agentic coding and systems. Four areas, one pipeline." property="og:description"/>
+<meta content="en_US" property="og:locale"/>
+<link href="assets/favicon.svg" id="favicon-svg" rel="icon" type="image/svg+xml"/>
+<link href="favicon.ico" rel="icon" sizes="32x32"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<!-- Accento salvato: applicato prima del paint -->
+<script>
+  (function () {
+    try {
+      var a = localStorage.getItem("accento");
+      var ok = ["orange", "green", "red", "blue", "cyan", "violet"];
+      if (a && ok.indexOf(a) > -1) {
+        document.documentElement.setAttribute("data-accent", a);
+      }
+    } catch (e) {}
+  })();
+</script>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("pref_lang");
+    if (saved === "en") return;
+    var nav = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+    if (saved === "it" || nav.toLowerCase().indexOf("it") === 0) {
+      var f = location.pathname.split("/").pop();
+      if (!f) f = "index.html";
+      location.replace("it/" + f + location.search + location.hash);
+    }
+  } catch (e) {}
+})();
+</script>
+<link rel="canonical" href="https://cristiandaros.altervista.org/">
+<link rel="alternate" hreflang="en" href="https://cristiandaros.altervista.org/">
+<link rel="alternate" hreflang="it" href="https://cristiandaros.altervista.org/it/">
+<link rel="alternate" hreflang="x-default" href="https://cristiandaros.altervista.org/">
+<meta content="noindex,nofollow" name="robots"/>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<!-- ==========================================================================
+     HEADER — identico in tutte le pagine.
+     Per cambiare una voce di menu, aggiornala in tutti i file (cerca "nav-list").
+     ========================================================================== -->
+<header class="site-header">
+<div class="shell header-inner">
+<a class="brand" href="index.html">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-name">Cristian Da Ros</span>
+</a>
+<nav aria-label="Main navigation" class="nav" id="primary-nav">
+<div class="nav-head">
+<span class="nav-head-title">Index</span>
+<button aria-label="Close the menu" class="nav-close" type="button">Close ✕</button>
+</div>
+<ul class="nav-list">
+<li><a href="3d-msfs.html">3D &amp; MSFS</a></li>
+<li><a href="video.html">Video</a></li>
+<li><a href="vibe-coding.html">Code &amp; AI</a></li>
+<li><a href="pc-linux.html">PC &amp; Linux</a></li>
+<li><a href="contatti.html">Contact</a></li>
+</ul>
+<div class="nav-foot">
+<div aria-label="Theme" class="accent-switch" role="group">
+<span class="accent-switch-label">Theme</span>
+<button aria-label="Orange" aria-pressed="true" class="accent-dot" data-accent-set="orange" style="--dot:#ff7100" title="Orange" type="button"></button>
+<button aria-label="Green" aria-pressed="false" class="accent-dot" data-accent-set="green" style="--dot:#3dffa0" title="Green" type="button"></button>
+<button aria-label="Red" aria-pressed="false" class="accent-dot" data-accent-set="red" style="--dot:#ff3556" title="Red" type="button"></button>
+<button aria-label="Blue" aria-pressed="false" class="accent-dot" data-accent-set="blue" style="--dot:#3f7bff" title="Blue" type="button"></button>
+<button aria-label="Light blue" aria-pressed="false" class="accent-dot" data-accent-set="cyan" style="--dot:#2bd9ff" title="Light blue" type="button"></button>
+<button aria-label="Purple" aria-pressed="false" class="accent-dot" data-accent-set="violet" style="--dot:#b26bff" title="Purple" type="button"></button>
+</div>
+<div aria-label="Language" class="lang-switch" role="group"><a aria-label="Italiano" class="lang-option" data-lang="it" href="it/index.html" hreflang="it" lang="it"><svg aria-hidden="true" focusable="false" viewbox="0 0 30 20"><rect fill="#009246" height="20" width="10"></rect><rect fill="#fff" height="20" width="10" x="10"></rect><rect fill="#ce2b37" height="20" width="10" x="20"></rect></svg><span>ITA</span></a><a aria-current="true" aria-label="English" class="lang-option is-active" data-lang="en" href="index.html" hreflang="en" lang="en"><svg aria-hidden="true" focusable="false" viewbox="0 0 30 20"><rect fill="#012169" height="20" width="30"></rect><path d="M0 0l30 20M30 0L0 20" stroke="#fff" stroke-width="4"></path><path d="M0 0l30 20M30 0L0 20" stroke="#C8102E" stroke-width="2"></path><path d="M15 0v20M0 10h30" stroke="#fff" stroke-width="6"></path><path d="M15 0v20M0 10h30" stroke="#C8102E" stroke-width="3"></path></svg><span>ENG</span></a></div>
+</div>
+</nav>
+<button aria-controls="primary-nav" aria-expanded="false" class="nav-toggle" type="button">
+<span>Menu</span>
+<span aria-hidden="true" class="nav-toggle-icon"><span></span><span></span></span>
+</button>
+</div>
+</header>
+<a class="portfolio-tab" data-portfolio-tab href="#portfolio">
+<span class="portfolio-tab-label">Portfolio</span>
+<span aria-hidden="true" class="portfolio-tab-arrow">↑</span>
+</a>
+<main id="main">
+<!-- ========================================================================
+       HERO
+       La colonna destra contiene la card Portfolio con le aree.
+       ======================================================================== -->
+<section class="hero">
+<div class="shell">
+<div class="hero-grid">
+<div class="hero-copy">
+<p class="eyebrow">3D / Real Time / Video / Code</p>
+<h1 class="hero-title">I model, simulate, <em>tell</em>.</h1>
+<p class="hero-lead">
+            My name is <strong>Cristian Da Ros</strong>. I work between 3D modeling and real time
+            for Microsoft Flight Simulator 2024, editing and color grading, Python code and
+            Windows/Linux systems. This site is a distillation of what I do, it fascinates me and keeps me alive.
+          </p>
+<div class="hero-actions">
+<a class="action action--accent" href="#aree">Explore the areas <span aria-hidden="true" class="ar">↗</span></a>
+<a class="action" href="contatti.html">Get in touch <span aria-hidden="true" class="ar">↗</span></a>
+</div>
+</div>
+<aside class="hero-aside">
+<div aria-labelledby="portfolio-card-title" class="portfolio-card" data-page-portfolio="" id="portfolio" role="region" tabindex="-1">
+<p class="portfolio-card-label">Areas</p>
+<h2 class="portfolio-card-title" id="portfolio-card-title">Portfolio</h2>
+<ul class="portfolio-list">
+<li><a href="3d-msfs.html">3D &amp; MSFS <span aria-hidden="true" class="ar">↗</span></a></li>
+<li><a href="video.html">Video <span aria-hidden="true" class="ar">↗</span></a></li>
+<li><a href="vibe-coding.html">Code &amp; AI <span aria-hidden="true" class="ar">↗</span></a></li>
+</ul>
+</div>
+</aside>
+</div>
+</div>
+</section>
+<!-- ========================================================================
+       SISTEMA — le aree in orbita. Canvas 2D in assets/js/solar.js.
+       Le etichette sono link reali: restano usabili anche senza canvas.
+       ======================================================================== -->
+<section class="section system" id="aree">
+<div class="shell">
+<div class="system-head">
+<h2 class="section-title">An Entire <em>System</em>.</h2>
+</div>
+<div class="system-stage" data-solar="">
+<canvas aria-hidden="true" class="system-canvas"></canvas>
+<button class="system-back" data-back="" type="button">Back to the system</button>
+<div class="system-labels">
+<a class="system-label" data-body="chris" href="contatti.html">Chris</a>
+<a class="system-label" data-body="it" href="pc-linux.html">PC &amp; Linux</a>
+<a class="system-label" data-body="ai" href="vibe-coding.html">Code &amp; AI</a>
+<a class="system-label" data-body="video" href="video.html">Video</a>
+<a class="system-label" data-body="3d" href="3d-msfs.html">3D &amp; MSFS</a>
+</div>
+<div class="system-zoom">
+<button aria-label="Zoom in" data-zoom="in" type="button">+</button>
+<button aria-label="Zoom out" data-zoom="out" type="button">−</button>
+</div>
+<p class="system-hint" data-hint="">drag to rotate · ctrl + scroll to zoom</p>
+</div>
+</div>
+</section>
+<!-- ========================================================================
+       METODO — citazione grande + tre principi
+       ======================================================================== -->
+<section class="section section--tint" id="metodo">
+<div class="shell">
+<div class="method">
+<p class="method-label">Method</p>
+<div>
+<p class="pull">A few rules, always <em>kept</em>.</p>
+<div class="principles">
+<article class="principle">
+<h3>Pipeline first</h3>
+<p>If the flow is clear, the result is repeatable. I automate what repeats and keep human judgment where it really matters.</p>
+</article>
+<article class="principle">
+<h3>Reference before render</h3>
+<p>Photos, floor plans, real videos: documentation decides the quality long before the first polygon or the first cut.</p>
+</article>
+<article class="principle">
+<h3>Document as you go</h3>
+<p>Consistent notes, versions and names. It helps me in six months, and it helps anyone who has to pick the project up again.</p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================
+       (La vecchia CTA "Parliamo del progetto" è stata rimossa: il sito è
+       a corredo del CV, non una pagina di contatto commerciale.)
+       ======================================================================== -->
+</main>
+<!-- ==========================================================================
+     FOOTER — identico in tutte le pagine.
+     Email e link social vanno aggiornati qui e in contatti.html.
+     ========================================================================== -->
+<footer class="site-footer">
+<div class="shell">
+<div class="footer-grid">
+<div class="footer-brand">
+<a class="brand" href="index.html">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-name">Cristian Da Ros</span>
+</a>
+<p>3D modeling and real time for MSFS 2024, video production, code and systems. Static site, hand-built.</p>
+</div>
+<nav aria-label="Areas of the site" class="footer-col">
+<h2>Areas</h2>
+<ul>
+<li><a href="3d-msfs.html">3D &amp; MSFS 2024</a></li>
+<li><a href="video.html">Video Production</a></li>
+<li><a href="vibe-coding.html">Code &amp; AI</a></li>
+<li><a href="pc-linux.html">PC &amp; Linux</a></li>
+</ul>
+</nav>
+<div class="footer-col">
+<h2>Contact</h2>
+<ul>
+<li><a href="mailto:chris.daros86@gmail.com">chris.daros86@gmail.com</a></li>
+<li><a href="contatti.html">Contact page</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-base">
+<p>© <span data-year="">2026</span> Cristian Da Ros</p>
+<p>HTML · CSS · JS — no CMS, no tracker</p>
+</div>
+<p aria-hidden="true" class="footer-name">Cristian Da Ros</p>
+</div>
+</footer>
+<div aria-hidden="true" class="page-veil" data-veil=""></div>
+<script defer="" src="assets/js/main.js"></script>
+<script>
+  (function () {
+    var engine = new URLSearchParams(window.location.search).get("sistema");
+    var s = document.createElement("script");
+    s.src = engine === "canvas" ? "assets/js/solar.js" : "assets/js/solar-three.min.js?v=code-1";
+    document.body.appendChild(s);
+  })();
+</script>
+</body>
+</html>

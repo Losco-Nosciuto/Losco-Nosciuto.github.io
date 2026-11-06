@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html data-accent="orange" lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Portfolio Code &amp; AI — Cristian Da Ros</title>
+<meta content="Lavori di codice selezionati: LN LODs Pro, add-on commerciale per Blender e MSFS 2024, un workspace agenti open source e due progetti personali in sviluppo." name="description"/>
+<!-- BOZZA: togliere noindex e aggiungere a sitemap.xml quando i numeri di LODs sono definitivi. -->
+<meta content="dark" name="color-scheme"/>
+<meta content="#08090b" name="theme-color"/>
+<meta content="article" property="og:type"/>
+<meta content="Portfolio Code &amp; AI" property="og:title"/>
+<meta content="Un add-on commerciale, un workspace open source e due progetti personali in sviluppo." property="og:description"/>
+<meta content="it_IT" property="og:locale"/>
+<meta content="https://cristiandaros.altervista.org/assets/img/code/lnlods-og.jpg" property="og:image"/>
+<link href="../../assets/favicon.svg" id="favicon-svg" rel="icon" type="image/svg+xml"/>
+<link href="../../favicon.ico" rel="icon" sizes="32x32"/>
+<link href="../../assets/css/style.css?v=code-9" rel="stylesheet"/>
+<script>
+  (function () {
+    try {
+      var a = localStorage.getItem("accento");
+      var ok = ["orange", "green", "red", "blue", "cyan", "violet"];
+      if (a && ok.indexOf(a) > -1) {
+        document.documentElement.setAttribute("data-accent", a);
+      }
+    } catch (e) {}
+  })();
+</script>
+<link rel="canonical" href="https://cristiandaros.altervista.org/it/portfolio/code-ai.html">
+<link rel="alternate" hreflang="en" href="https://cristiandaros.altervista.org/portfolio/code-ai.html">
+<link rel="alternate" hreflang="it" href="https://cristiandaros.altervista.org/it/portfolio/code-ai.html">
+<link rel="alternate" hreflang="x-default" href="https://cristiandaros.altervista.org/portfolio/code-ai.html">
+<meta content="noindex,nofollow" name="robots"/>
+</head>
+<body>
+<a class="skip-link" href="#main">Vai al contenuto</a>
+<!-- HEADER — vedi index.html -->
+<header class="site-header">
+<div class="shell header-inner">
+<a class="brand" href="../index.html">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-name">Cristian Da Ros</span>
+</a>
+<nav aria-label="Navigazione principale" class="nav" id="primary-nav">
+<div class="nav-head">
+<span class="nav-head-title">Indice</span>
+<button aria-label="Chiudi il menu" class="nav-close" type="button">Chiudi ✕</button>
+</div>
+<ul class="nav-list">
+<li><a href="../3d-msfs.html">3D &amp; MSFS</a></li>
+<li><a href="../video.html">Video</a></li>
+<li><a href="../vibe-coding.html">Code &amp; AI</a></li>
+<li><a href="../pc-linux.html">PC &amp; Linux</a></li>
+<li><a href="../contatti.html">Contatti</a></li>
+</ul>
+<div class="nav-foot">
+<div aria-label="Tema" class="accent-switch" role="group">
+<span class="accent-switch-label">Tema</span>
+<button aria-label="Arancio" aria-pressed="true" class="accent-dot" data-accent-set="orange" style="--dot:#ff7100" title="Arancio" type="button"></button>
+<button aria-label="Verde" aria-pressed="false" class="accent-dot" data-accent-set="green" style="--dot:#3dffa0" title="Verde" type="button"></button>
+<button aria-label="Rosso" aria-pressed="false" class="accent-dot" data-accent-set="red" style="--dot:#ff3556" title="Rosso" type="button"></button>
+<button aria-label="Blu" aria-pressed="false" class="accent-dot" data-accent-set="blue" style="--dot:#3f7bff" title="Blu" type="button"></button>
+<button aria-label="Azzurro" aria-pressed="false" class="accent-dot" data-accent-set="cyan" style="--dot:#2bd9ff" title="Azzurro" type="button"></button>
+<button aria-label="Viola" aria-pressed="false" class="accent-dot" data-accent-set="violet" style="--dot:#b26bff" title="Viola" type="button"></button>
+</div>
+<div aria-label="Language" class="lang-switch" role="group"><a aria-current="true" aria-label="Italiano" class="lang-option is-active" data-lang="it" href="code-ai.html" hreflang="it" lang="it"><svg aria-hidden="true" focusable="false" viewbox="0 0 30 20"><rect fill="#009246" height="20" width="10"></rect><rect fill="#fff" height="20" width="10" x="10"></rect><rect fill="#ce2b37" height="20" width="10" x="20"></rect></svg><span>ITA</span></a><a aria-label="English" class="lang-option" data-lang="en" href="../../portfolio/code-ai.html" hreflang="en" lang="en"><svg aria-hidden="true" focusable="false" viewbox="0 0 30 20"><rect fill="#012169" height="20" width="30"></rect><path d="M0 0l30 20M30 0L0 20" stroke="#fff" stroke-width="4"></path><path d="M0 0l30 20M30 0L0 20" stroke="#C8102E" stroke-width="2"></path><path d="M15 0v20M0 10h30" stroke="#fff" stroke-width="6"></path><path d="M15 0v20M0 10h30" stroke="#C8102E" stroke-width="3"></path></svg><span>ENG</span></a></div>
+</div>
+</nav>
+<button aria-controls="primary-nav" aria-expanded="false" class="nav-toggle" type="button">
+<span>Menu</span>
+<span aria-hidden="true" class="nav-toggle-icon"><span></span><span></span></span>
+</button>
+</div>
+</header>
+<main id="main">
+<header class="page-head">
+<div class="shell">
+<div class="page-head-grid">
+<div class="page-id">
+<nav aria-label="Percorso" class="breadcrumb">
+<a href="../index.html">Home</a>
+<span aria-hidden="true">/</span>
+<a href="../vibe-coding.html">Code &amp; AI</a>
+<span aria-hidden="true">/</span>
+<span>Portfolio</span>
+</nav>
+<p class="area-label">Lavori scelti</p>
+</div>
+<div class="page-title">
+<h1>Portfolio <em>Code &amp; AI</em></h1>
+<p class="lead">Un add-on commerciale, un workspace open source e due progetti personali in sviluppo. Una selezione corta, per scelta.</p>
+</div>
+</div>
+</div>
+</header>
+<div class="shell">
+
+<section class="block" id="ln-lods-pro">
+<div class="feature">
+<div class="feature-body">
+<p class="feature-kicker">MSFS 2024 · Blender · commerciale · v4</p>
+<h2 class="feature-title">LN LODs <em>Pro</em></h2>
+<p>Un add-on Blender che calcola le soglie LOD dal conteggio vertici dello stesso exporter di MSFS 2024: il numero che vedi in Blender è il numero che userà il simulatore. Un viewer prova le transizioni prima dell'export; l'exporter resta l'unica pipeline.</p>
+<p>Iniziato nel 2023 e sviluppato a fasi, è ora in rework e integrazione in una suite di tool MSFS. La base gratuita resta gratuita; i moduli Pro aggiungono il viewer e la testing mode. Fino al rilascio della suite, il nome resta LN LODs Pro.</p>
+<div class="feature-links">
+<a class="feature-link" href="ln-lods-pro.html">Leggi il caso studio <span aria-hidden="true">→</span></a>
+<a class="feature-link" href="https://www.youtube.com/watch?v=-oM9fHnyr5w" rel="noopener" target="_blank">Guarda la demo <span aria-hidden="true">↗</span></a>
+<a class="feature-link" href="https://lndesignfs.gumroad.com/l/lnlodspro" rel="noopener" target="_blank">Gumroad <span aria-hidden="true">↗</span></a>
+<a class="feature-link" href="https://superhivemarket.com/products/ln-lods-pro4" rel="noopener" target="_blank">Superhive <span aria-hidden="true">↗</span></a>
+</div>
+</div>
+<figure class="feature-media">
+<a class="figure-open" href="../../assets/img/code/lnlods-hero.webp" data-lightbox data-title="Viewport Blender con il pannello LN LODs Pro: la sfera di copertura attorno a un modello di test al 427%, i sette livelli LOD e i loro conteggi vertici." rel="noopener" target="_blank">
+<img alt="Viewport Blender con il pannello LN LODs Pro: la sfera di copertura attorno a un modello di test al 427%, i sette livelli LOD e i loro conteggi vertici." decoding="async" height="607" loading="eager" sizes="(max-width: 900px) 100vw, 46vw" src="../../assets/img/code/lnlods-hero.webp" srcset="../../assets/img/code/lnlods-hero-sm.webp 600w, ../../assets/img/code/lnlods-hero.webp 1200w" width="1200"/>
+</a>
+<figcaption>Blender 4.5 · sfera di copertura, lista LOD e soglie · <a href="../../assets/img/code/lnlods-hero.webp" data-lightbox data-title="Viewport Blender con il pannello LN LODs Pro: la sfera di copertura attorno a un modello di test al 427%, i sette livelli LOD e i loro conteggi vertici." rel="noopener" target="_blank">Apri a dimensione piena <span aria-hidden="true">↗</span></a></figcaption>
+</figure>
+</div>
+</section>
+
+<section class="block" id="open-source">
+<div class="block-head">
+<h2>Open <em>source</em></h2>
+</div>
+<div class="block-body">
+<article class="entry">
+<div>
+<p class="entry-meta"><span class="tag">Open source</span> · Python · agenti AI</p>
+<h3 class="entry-title">MSFS 2024 OpenCode Workspace</h3>
+</div>
+<div class="entry-body">
+<p>Sei agenti OpenCode e una cache di conoscenza MSFS 2024 verificata: una pipeline di ricerca cache-first, un planner read-only per add-on Blender e tool MSFS, sotto-agenti di ricerca in parallelo, un solo writer e gate di validazione. È il flusso di lavoro dietro la suite LN LODs Pro.</p>
+<dl class="spec">
+<div class="spec-row"><dt>Agenti</dt><dd>Sei: cache updater, planner, triage dei dump, ricerca, cache writer, source scout.</dd></div>
+<div class="spec-row"><dt>Cache</dt><dd>Fatti etichettati per stato e con fonti: citati, empirici, inferiti, sconosciuti.</dd></div>
+<div class="spec-row"><dt>Tooling</dt><dd>Installer, validatore della cache, sanitizer dei dump, guida allo schema.</dd></div>
+<div class="spec-row"><dt>Licenza</dt><dd>MIT per il codice, CC BY 4.0 per documentazione, prompt e cache.</dd></div>
+</dl>
+<p class="entry-link-row"><a class="feature-link" href="https://github.com/Losco-Nosciuto/Opencode_MSFS" rel="noopener" target="_blank">Repository su GitHub <span aria-hidden="true">↗</span></a></p>
+</div>
+</article>
+</div>
+</section>
+
+<section class="block" id="personal">
+<div class="block-head">
+<h2>Personali &amp; <em>R&amp;D</em></h2>
+</div>
+<div class="block-body">
+<article class="entry entry--with-thumb entry--thumb-right">
+<div>
+<p class="entry-meta">Gaming · in sviluppo</p>
+<h3 class="entry-title">DayZ Vapour Launcher</h3>
+</div>
+<div class="entry-body">
+<p>Un launcher costruito sui miei criteri, non un tool di efficienza: server browser, filtri e mod manager in un unico posto. Lo sweep dei server e le regole sulle server farm sono ancora in refine; il numero non è definitivo.</p>
+</div>
+<div class="entry-thumb-wrap">
+<a class="figure-open entry-thumb" href="../../assets/img/code/dayz-mods.webp" data-lightbox data-title="DayZ Vapour Launcher: il mod manager con 140 mod installate, filtrate per categoria." rel="noopener" target="_blank">
+<img alt="DayZ Vapour Launcher: il mod manager con 140 mod installate, filtrate per categoria." decoding="async" height="261" loading="lazy" src="../../assets/img/code/dayz-mods-sm.webp" width="480"/>
+</a>
+</div>
+</article>
+<article class="entry entry--with-thumb entry--thumb-left">
+<div>
+<p class="entry-meta">Gaming · in sviluppo</p>
+<h3 class="entry-title">Crimson Desert Companion</h3>
+</div>
+<div class="entry-body">
+<p>Un companion per il secondo monitor: mappa, quest tracker, inventory mirror. L'ultima espansione del gioco ha cambiato i dati su cui si appoggia, quindi è tornato in rework.</p>
+</div>
+<div class="entry-thumb-wrap">
+<a class="figure-open entry-thumb" href="../../assets/img/code/crimson-map.webp" data-lightbox data-title="Crimson Desert Companion: la mappa interattiva con POI e filtri per categoria." rel="noopener" target="_blank">
+<img alt="Crimson Desert Companion: la mappa interattiva con POI e filtri per categoria." decoding="async" height="251" loading="lazy" src="../../assets/img/code/crimson-map-sm.webp" width="480"/>
+</a>
+</div>
+</article>
+</div>
+</section>
+
+<section class="block" id="notes">
+<div class="note">
+<span class="note-title">Licenza e privacy</span>
+<p>LN LODs Pro è distribuito con licenza GPL; il sorgente è incluso nell'acquisto. Questa pagina non carica risorse di terze parti: nessun cookie, nessuna analytics e nessuna richiesta a GitHub, Gumroad, Superhive o YouTube prima del click.</p>
+</div>
+</section>
+
+</div>
+</main>
+<dialog aria-label="Visualizzatore immagine" class="image-dialog" data-image-dialog>
+<div class="image-dialog-inner">
+<button aria-label="Chiudi l'immagine" class="image-dialog-close" data-image-close type="button">Chiudi ✕</button>
+<img alt="" data-image-target/>
+</div>
+</dialog>
+<!-- FOOTER — vedi index.html -->
+<footer class="site-footer">
+<div class="shell">
+<div class="footer-grid">
+<div class="footer-brand">
+<a class="brand" href="../index.html">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-name">Cristian Da Ros</span>
+</a>
+<p>
+          3D modeling e real time per MSFS 2024, produzione video, codice e sistemi.
+          Sito statico, fatto a mano.
+        </p>
+</div>
+<nav aria-label="Aree del sito" class="footer-col">
+<h2>Aree</h2>
+<ul>
+<li><a href="../3d-msfs.html">3D &amp; MSFS 2024</a></li>
+<li><a href="../video.html">Produzione video</a></li>
+<li><a href="../vibe-coding.html">Code &amp; AI</a></li>
+<li><a href="../pc-linux.html">PC &amp; Linux</a></li>
+</ul>
+</nav>
+<div class="footer-col">
+<h2>Contatti</h2>
+<ul>
+<li><a href="mailto:chris.daros86@gmail.com">chris.daros86@gmail.com</a></li>
+<li><a href="../contatti.html">Pagina contatti</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-base">
+<p>© <span data-year>2026</span> Cristian Da Ros</p>
+<p>HTML · CSS · JS — nessun CMS, nessun tracker</p>
+</div>
+<p aria-hidden="true" class="footer-name">Cristian Da Ros</p>
+</div>
+</footer>
+<script defer="" src="../../assets/js/main.js?v=code-1"></script>
+</body>
+</html>
