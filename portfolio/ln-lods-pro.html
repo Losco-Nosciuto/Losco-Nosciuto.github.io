@@ -6,8 +6,6 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>LN LODs Pro — a commercial Blender add-on for MSFS 2024 — Cristian Da Ros</title>
 <meta content="How a Blender add-on calculates MSFS 2024 LOD thresholds from the exporter's own vertex count, tests transitions before export, and stayed maintainable from v1.6 to v4." name="description"/>
-<!-- DRAFT: remove noindex and add to sitemap.xml when the numbers and the code excerpt are final. -->
-<meta content="noindex" name="robots"/>
 <meta content="dark" name="color-scheme"/>
 <meta content="#08090b" name="theme-color"/>
 <meta content="article" property="og:type"/>
@@ -17,7 +15,7 @@
 <meta content="https://losco-nosciuto.github.io/assets/img/code/lnlods-og.jpg" property="og:image"/>
 <link href="../assets/favicon.svg" id="favicon-svg" rel="icon" type="image/svg+xml"/>
 <link href="../favicon.ico" rel="icon" sizes="32x32"/>
-<link href="../assets/css/style.css?v=code-10" rel="stylesheet"/>
+<link href="../assets/css/style.css?v=code-11" rel="stylesheet"/>
 <script>
   (function () {
     try {
@@ -107,6 +105,7 @@
 <a href="#perche">Why I wrote it</a>
 <a href="#metodo">How the method changed</a>
 <a href="#scogli">The technical hurdles</a>
+<a href="#codice">Inside the viewer</a>
 <a href="#risultato">Result</a>
 <a href="#limiti">Limits</a>
 <a href="#lezioni">What I learned</a>
@@ -211,6 +210,68 @@
 <li class="step"><span class="step-n">05</span><h3>Non-destructive operators</h3><p>Overlays, lens, visibility and undo state are saved and restored. Testing a LOD must not leave the file changed.</p></li>
 <li class="step"><span class="step-n">06</span><h3>Integration with the exporter</h3><p>Values are written into the LOD groups, with rounding and margin, and the standard export path remains the only one.</p></li>
 </ol>
+</div>
+</section>
+
+<section class="block" id="codice">
+<div class="block-head">
+<h2>The viewer, in <em>code</em></h2>
+<p class="lead">The part that pays for itself: the viewport decides which LOD collection stays visible, using the same vertical screen size the simulator uses.</p>
+</div>
+<div class="block-body">
+<div class="prose">
+<p>Coverage comes from the bounding sphere of the whole model and from the live viewport FOV, not from what is visible on screen. MSFS 2024 does not clamp at the sphere surface, so the ratio is <code>r / (d · tan(fov/2))</code>, capped at 10 and multiplied by 100; the 2020 legacy path uses <code>min(r/d × 1000, 1000)</code>.</p>
+</div>
+<pre class="code"><code><span class="c"># ln_lod_screen.py</span>
+def screen_size_percent(radius, distance, fov_y, lod_factor=1.0):
+    """MSFS 2024 vertical screen size, in percent (0..1000)."""
+    if radius &lt;= 0.0 or fov_y &lt;= 0.0:
+        return 0.0
+    d = max(distance, 0.001)
+    half_tan = math.tan(fov_y / 2.0)
+    ratio = (radius * lod_factor) / (d * half_tan)
+    return min(ratio, 10.0) * 100.0</code></pre>
+<div class="prose">
+<p>Then the viewer keeps one coverage value per model — the same for every LOD in the group — picks the first LOD whose threshold is met, and hides all the others. The choice is a pure-Python function, so it can be tested without Blender.</p>
+</div>
+<pre class="code"><code><span class="c"># ln_testing_state.py</span>
+def choose_lod_index(entries):
+    """First LOD whose coverage reaches its threshold, else the last one."""
+    if not entries:
+        return None
+    for index, (threshold, coverage) in enumerate(entries):
+        if coverage &gt;= threshold:
+            return index
+    return len(entries) - 1</code></pre>
+<pre class="code"><code><span class="c"># ln_lod_viewer.py</span>
+def _update_group(self, context, group_item):
+    if not group_item.enabled:
+        return
+
+    <span class="c"># Highest detail first: thresholds descending, LOD number as tiebreaker.</span>
+    ordered = sorted(
+        group_item.lods,
+        key=lambda lod: (-lod.screen_threshold, lod.lod_number),
+    )
+    if not ordered:
+        return
+
+    <span class="c"># One coverage per model, as the simulator does: the bounding sphere of</span>
+    <span class="c"># the whole model decides the screen size for every LOD.</span>
+    center, radius = get_group_bounding_sphere(group_item)
+    coverage = compute_msfs_coverage(center, radius, self._live_region_3d())
+
+    entries = [(lod.screen_threshold, coverage) for lod in ordered]
+    index = ln_testing_state.choose_lod_index(entries)
+    if index is None:
+        return
+
+    chosen = ordered[index]
+    for sub in ordered:
+        coll = bpy.data.collections.get(sub.collection_name)
+        if coll:
+            coll.hide_viewport = (sub != chosen)</code></pre>
+<p class="code-note">Debug prints removed, names unchanged · GPL source ships with the add-on</p>
 </div>
 </section>
 

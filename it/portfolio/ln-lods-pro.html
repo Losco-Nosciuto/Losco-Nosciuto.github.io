@@ -6,8 +6,6 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>LN LODs Pro — un add-on commerciale per Blender e MSFS 2024 — Cristian Da Ros</title>
 <meta content="Come un add-on Blender calcola le soglie LOD di MSFS 2024 dal conteggio vertici dell'exporter, prova le transizioni prima dell'export e resta manutenibile dalla v1.6 alla v4." name="description"/>
-<!-- BOZZA: togliere noindex e aggiungere a sitemap.xml quando numeri ed estratto di codice sono definitivi. -->
-<meta content="noindex" name="robots"/>
 <meta content="dark" name="color-scheme"/>
 <meta content="#08090b" name="theme-color"/>
 <meta content="article" property="og:type"/>
@@ -17,7 +15,7 @@
 <meta content="https://losco-nosciuto.github.io/assets/img/code/lnlods-og.jpg" property="og:image"/>
 <link href="../../assets/favicon.svg" id="favicon-svg" rel="icon" type="image/svg+xml"/>
 <link href="../../favicon.ico" rel="icon" sizes="32x32"/>
-<link href="../../assets/css/style.css?v=code-10" rel="stylesheet"/>
+<link href="../../assets/css/style.css?v=code-11" rel="stylesheet"/>
 <script>
   (function () {
     try {
@@ -107,6 +105,7 @@
 <a href="#perche">Perché l'ho scritto</a>
 <a href="#metodo">Come è cambiato il metodo</a>
 <a href="#scogli">Gli scogli tecnici</a>
+<a href="#codice">Dentro il viewer</a>
 <a href="#risultato">Risultato</a>
 <a href="#limiti">Limiti</a>
 <a href="#lezioni">Cosa ho imparato</a>
@@ -211,6 +210,68 @@
 <li class="step"><span class="step-n">05</span><h3>Operatori non distruttivi</h3><p>Overlay, lente, visibilità e undo vengono salvati e ripristinati. Provare un LOD non deve lasciare il file cambiato.</p></li>
 <li class="step"><span class="step-n">06</span><h3>Integrazione con l'exporter</h3><p>I valori vengono scritti nei LOD group, con arrotondamento e margine, e il percorso di export standard resta l'unico.</p></li>
 </ol>
+</div>
+</section>
+
+<section class="block" id="codice">
+<div class="block-head">
+<h2>Il viewer, nel <em>codice</em></h2>
+<p class="lead">La parte che si ripaga da sola: è il viewport a decidere quale collection di LOD resta visibile, usando la stessa dimensione verticale su schermo del simulatore.</p>
+</div>
+<div class="block-body">
+<div class="prose">
+<p>La copertura viene dalla sfera di contenimento dell'intero modello e dalla FOV viva del viewport, non da quello che si vede a schermo. MSFS 2024 non si ferma alla superficie della sfera, quindi il rapporto è <code>r / (d · tan(fov/2))</code>, limitato a 10 e moltiplicato per 100; il percorso legacy 2020 usa <code>min(r/d × 1000, 1000)</code>.</p>
+</div>
+<pre class="code"><code><span class="c"># ln_lod_screen.py</span>
+def screen_size_percent(radius, distance, fov_y, lod_factor=1.0):
+    """Dimensione verticale su schermo per MSFS 2024, in percento (0..1000)."""
+    if radius &lt;= 0.0 or fov_y &lt;= 0.0:
+        return 0.0
+    d = max(distance, 0.001)
+    half_tan = math.tan(fov_y / 2.0)
+    ratio = (radius * lod_factor) / (d * half_tan)
+    return min(ratio, 10.0) * 100.0</code></pre>
+<div class="prose">
+<p>Poi il viewer tiene un solo valore di copertura per modello — lo stesso per ogni LOD del gruppo — sceglie il primo LOD la cui soglia è raggiunta e nasconde tutti gli altri. La scelta è una funzione di puro Python, quindi si testa senza Blender.</p>
+</div>
+<pre class="code"><code><span class="c"># ln_testing_state.py</span>
+def choose_lod_index(entries):
+    """Il primo LOD la cui copertura raggiunge la soglia, altrimenti l'ultimo."""
+    if not entries:
+        return None
+    for index, (threshold, coverage) in enumerate(entries):
+        if coverage &gt;= threshold:
+            return index
+    return len(entries) - 1</code></pre>
+<pre class="code"><code><span class="c"># ln_lod_viewer.py</span>
+def _update_group(self, context, group_item):
+    if not group_item.enabled:
+        return
+
+    <span class="c"># Prima il dettaglio più alto: soglie in discesa, numero di LOD a spareggio.</span>
+    ordered = sorted(
+        group_item.lods,
+        key=lambda lod: (-lod.screen_threshold, lod.lod_number),
+    )
+    if not ordered:
+        return
+
+    <span class="c"># Una copertura per modello, come fa il simulatore: la sfera di contenimento</span>
+    <span class="c"># dell'intero modello decide la dimensione su schermo di ogni LOD.</span>
+    center, radius = get_group_bounding_sphere(group_item)
+    coverage = compute_msfs_coverage(center, radius, self._live_region_3d())
+
+    entries = [(lod.screen_threshold, coverage) for lod in ordered]
+    index = ln_testing_state.choose_lod_index(entries)
+    if index is None:
+        return
+
+    chosen = ordered[index]
+    for sub in ordered:
+        coll = bpy.data.collections.get(sub.collection_name)
+        if coll:
+            coll.hide_viewport = (sub != chosen)</code></pre>
+<p class="code-note">Stampa di debug rimossa, nomi invariati · sorgente GPL incluso nell'acquisto</p>
 </div>
 </section>
 
