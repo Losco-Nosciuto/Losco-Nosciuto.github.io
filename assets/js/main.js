@@ -702,6 +702,20 @@
       if (!href) return;
       event.preventDefault();
       lastFocus = link;
+
+      // Riserva subito il rapporto dell'immagine: senza width/height il dialog
+      // si apre alto 2 px e resta una striscia finché il file non è caricato.
+      var source = link.querySelector("img");
+      var w = source ? source.getAttribute("width") || source.naturalWidth : 0;
+      var h = source ? source.getAttribute("height") || source.naturalHeight : 0;
+      if (w && h) {
+        target.setAttribute("width", w);
+        target.setAttribute("height", h);
+      } else {
+        target.removeAttribute("width");
+        target.removeAttribute("height");
+      }
+
       target.src = href;
       target.alt = link.getAttribute("data-title") || link.getAttribute("aria-label") || "";
       dialog.showModal();

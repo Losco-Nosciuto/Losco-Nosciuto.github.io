@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="it" data-accent="orange">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LFBP Pau Pyrénées, caso studio - Cristian Da Ros</title>
+<meta name="description" content="Come è nato LFBP Pau Pyrénées per Microsoft Flight Simulator: il terminal modellato dalle fotografie, l'aeroporto cercato con chi ci vive accanto, e i modelli recuperati dopo la perdita dei sorgenti.">
+<!-- STUB: mancano l'aeroporto, gli scogli e i numeri. Togliere noindex al go-live. -->
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#08090b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LFBP Pau Pyrénées — caso studio">
+<meta property="og:description" content="Un terminal e un aeroporto: modellare dalle fotografie, cercare con i locali, e quello che è sopravvissuto ai file persi.">
+<meta property="og:locale" content="it_IT">
+<link rel="icon" type="image/svg+xml" id="favicon-svg" href="../../assets/favicon.svg">
+<link rel="icon" href="../../favicon.ico" sizes="32x32">
+<link rel="stylesheet" href="../../assets/css/style.css?v=3d-6">
+<script>
+  (function () {
+    try {
+      var a = localStorage.getItem("accento");
+      var ok = ["orange", "green", "red", "blue", "cyan", "violet"];
+      if (a && ok.indexOf(a) > -1) {
+        document.documentElement.setAttribute("data-accent", a);
+      }
+    } catch (e) {}
+  })();
+</script>
+<link rel="canonical" href="https://cristiandaros.altervista.org/it/portfolio/pau-pyrenees.html">
+<link rel="alternate" hreflang="en" href="https://cristiandaros.altervista.org/portfolio/pau-pyrenees.html">
+<link rel="alternate" hreflang="it" href="https://cristiandaros.altervista.org/it/portfolio/pau-pyrenees.html">
+<link rel="alternate" hreflang="x-default" href="https://cristiandaros.altervista.org/portfolio/pau-pyrenees.html">
+<meta content="noindex,nofollow" name="robots"/>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Vai al contenuto</a>
+
+<!-- HEADER — vedi index.html -->
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <span class="brand-name">Cristian Da Ros</span>
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigazione principale">
+      <div class="nav-head">
+        <span class="nav-head-title">Menu</span>
+        <button class="nav-close" type="button" aria-label="Chiudi il menu">Chiudi ✕</button>
+      </div>
+
+      <ul class="nav-list">
+        <li><a href="../3d-msfs.html">3D &amp; MSFS</a></li>
+        <li><a href="../video.html">Video</a></li>
+        <li><a href="../vibe-coding.html">Code &amp; AI</a></li>
+        <li><a href="../pc-linux.html">PC &amp; Linux</a></li>
+        <li><a href="../contatti.html">Contatti</a></li>
+      </ul>
+
+      <div class="nav-foot">
+        <div class="accent-switch" role="group" aria-label="Tema">
+          <span class="accent-switch-label">Tema</span>
+          <button class="accent-dot" type="button" data-accent-set="orange" style="--dot:#ff7100" title="Arancio" aria-label="Arancio" aria-pressed="true"></button>
+          <button class="accent-dot" type="button" data-accent-set="green" style="--dot:#3dffa0" title="Verde" aria-label="Verde" aria-pressed="false"></button>
+          <button class="accent-dot" type="button" data-accent-set="red" style="--dot:#ff3556" title="Rosso" aria-label="Rosso" aria-pressed="false"></button>
+          <button class="accent-dot" type="button" data-accent-set="blue" style="--dot:#3f7bff" title="Blu" aria-label="Blu" aria-pressed="false"></button>
+          <button class="accent-dot" type="button" data-accent-set="cyan" style="--dot:#2bd9ff" title="Azzurro" aria-label="Azzurro" aria-pressed="false"></button>
+          <button class="accent-dot" type="button" data-accent-set="violet" style="--dot:#b26bff" title="Viola" aria-label="Viola" aria-pressed="false"></button>
+        </div>
+<div class="lang-switch" role="group" aria-label="Language"><a class="lang-option is-active" href="pau-pyrenees.html" hreflang="it" lang="it" data-lang="it" aria-label="Italiano" aria-current="true"><svg viewBox="0 0 30 20" aria-hidden="true" focusable="false"><rect width="10" height="20" fill="#009246"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#ce2b37"/></svg><span>ITA</span></a><a class="lang-option" href="../../portfolio/pau-pyrenees.html" hreflang="en" lang="en" data-lang="en" aria-label="English"><svg viewBox="0 0 30 20" aria-hidden="true" focusable="false"><rect width="30" height="20" fill="#012169"/><path d="M0 0l30 20M30 0L0 20" stroke="#fff" stroke-width="4"/><path d="M0 0l30 20M30 0L0 20" stroke="#C8102E" stroke-width="2"/><path d="M15 0v20M0 10h30" stroke="#fff" stroke-width="6"/><path d="M15 0v20M0 10h30" stroke="#C8102E" stroke-width="3"/></svg><span>ENG</span></a></div>
+      </div>
+    </nav>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span>Menu</span>
+      <span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span></span>
+    </button>
+  </div>
+</header>
+<main id="main">
+<header class="page-head">
+<div class="shell">
+<div class="page-head-grid">
+<div class="page-id">
+<nav aria-label="Path" class="breadcrumb">
+<a href="../index.html">Home</a>
+<span aria-hidden="true">/</span>
+<a href="../3d-msfs.html">3D &amp; MSFS 2024</a>
+<span aria-hidden="true">/</span>
+<a href="3d-msfs.html">Portfolio</a>
+<span aria-hidden="true">/</span>
+<span>Pau Pyrénées</span>
+</nav>
+<p class="area-label">Caso studio</p>
+</div>
+<div class="page-title page-title--case">
+<h1>LFBP Pau Pyrénées — un terminal e un <em>aeroporto</em></h1>
+<p class="lead">Ogni edificio modellato dalle fotografie, il terminal costruito anche dall'interno, e una ricerca portata avanti dalle persone che vivono accanto al piazzale.</p>
+</div>
+</div>
+</div>
+</header>
+<div class="shell">
+<div class="layout">
+<aside class="side">
+<p class="side-label">In questa pagina</p>
+<nav aria-label="Sezioni della pagina" class="toc" data-toc="">
+<a href="#contesto">Contesto</a>
+<a href="#ricerca">Ricerca</a>
+<a href="#terminale">Il terminal</a>
+<a href="#modelli">Edifici e oggetti</a>
+<a href="#nove-mesi">Nove mesi</a>
+<a href="#militare">Il lato militare</a>
+</nav>
+</aside>
+<div class="content">
+
+<section class="block" id="contesto">
+<div class="block-head">
+<h2>Contesto</h2>
+</div>
+<div class="block-body">
+<div class="prose">
+<p>LFBP Pau Pyrénées sta a 10 km a nord-ovest di Pau, a Uzein, e ha memoria lunga: la scuola dei fratelli Wright aprì lì nel 1909 perché il tempo era più mite che a Le Mans, Blériot tornò lo stesso anno ad aprire la sua scuola di volo, e nel 1912 l'esercito francese aveva già una delle scuole di volo più grandi del paese.</p>
+<p>Per Microsoft Flight Simulator è stata una ricostruzione completa. Ogni edificio modellato e texturizzato da zero, molti con gli interni: il terminal principale, la torre ATC, l'hangar Locavions, l'Aéroclub du Béarn. Mappe PBR miste 2K e 4K, una superficie aeroportuale abbastanza precisa da essere navigata con le carte aeronautiche vere, e luci notturne rifatte dettaglio per dettaglio.</p>
+</div>
+<figure class="feature-media case-figure">
+<a class="figure-open" href="../../assets/img/3d/pau-terminal-sunset.webp" data-lightbox data-title="LFBP Pau Pyrénées al tramonto: il terminal e il piazzale sotto un cielo da temporale, con due aerei in piazzola." rel="noopener" target="_blank">
+<img alt="LFBP Pau Pyrénées al tramonto: il terminal e il piazzale sotto un cielo da temporale, con due aerei in piazzola." decoding="async" height="675" loading="eager" sizes="(max-width: 900px) 100vw, 520px" src="../../assets/img/3d/pau-terminal-sunset.webp" srcset="../../assets/img/3d/pau-terminal-sunset-sm.webp 600w, ../../assets/img/3d/pau-terminal-sunset.webp 1200w" width="1200"/>
+</a>
+<figcaption>LFBP · piazzale e terminal all'ultima luce · <a href="../../assets/img/3d/pau-terminal-sunset.webp" data-lightbox data-title="LFBP Pau Pyrénées al tramonto: il terminal e il piazzale sotto un cielo da temporale, con due aerei in piazzola." rel="noopener" target="_blank">Apri a dimensione piena <span aria-hidden="true">↗</span></a></figcaption>
+</figure>
+</div>
+</section>
+
+<section class="block" id="ricerca">
+<div class="block-head">
+<h2>La ricerca, e le persone che mi hanno <em>aiutato</em></h2>
+</div>
+<div class="block-body">
+<div class="prose">
+<p>Lavoravo a migliaia di chilometri da Uzein. Le carte mi davano la disposizione, il satellite mi dava i tetti: nessuno dei due mi dava le macchine del check-in, il pavimento del terminal, la forma della segnaletica. Quei dettagli esistono solo in fotografia — e spesso solo in fotografie che qualcuno ha scattato un sabato pomeriggio.</p>
+<p>Così ho chiesto. Spotter, thread sui forum, gente che vive intorno all'aeroporto e fotografa il piazzale per il gusto di farlo. Hanno risposto, sono tornati, ne hanno mandate altre. Ogni interno di questo aeroporto esiste perché qualcuno si è preso il tempo di fotografarlo per uno sconosciuto.</p>
+<p>Molte reference vengono da Internet: gruppi Facebook, Google Maps, Instagram. Le altre sono arrivate da persone che volevano aiutarmi; i loro nomi sono già nei crediti dell'aeroporto in vendita, e restano lì.</p>
+<p>La board di reference è la ricevuta: interni, hangar, varie, riempita un'immagine alla volta in <a href="https://www.pureref.com/" rel="noopener" target="_blank">PureRef <span aria-hidden="true">↗</span></a>.</p>
+</div>
+<figure class="feature-media case-figure">
+<a class="figure-open" href="../../assets/img/3d/pau-pureref.webp" data-lightbox data-title="La board PureRef di LFBP: cartelle per interni, hangar e varie, riempite con le fotografie raccolte dai locali e online." rel="noopener" target="_blank">
+<img alt="La board PureRef di LFBP: cartelle per interni, hangar e varie, riempite con le fotografie raccolte dai locali e online." decoding="async" height="820" loading="lazy" sizes="(max-width: 900px) 100vw, 520px" src="../../assets/img/3d/pau-pureref-sm.webp" srcset="../../assets/img/3d/pau-pureref-sm.webp 600w, ../../assets/img/3d/pau-pureref.webp 1200w" width="1200"/>
+</a>
+<figcaption>PureRef · interni, hangar, varie · <a href="../../assets/img/3d/pau-pureref.webp" data-lightbox data-title="La board PureRef di LFBP: cartelle per interni, hangar e varie, riempite con le fotografie raccolte dai locali e online." rel="noopener" target="_blank">Apri a dimensione piena <span aria-hidden="true">↗</span></a></figcaption>
+</figure>
+</div>
+</section>
+
+<section class="block" id="terminale">
+<div class="block-head">
+<h2>Il <em>terminal</em></h2>
+</div>
+<div class="block-body">
+<div class="prose">
+<figure class="feature-media case-float">
+<a class="figure-open" href="../../assets/img/3d/pau-terminal-wip.webp" data-lightbox data-title="L'esterno del terminal durante il primo pass di texturing: tetto e facciata vetrata, prima che esistessero gli interni." rel="noopener" target="_blank">
+<img alt="L'esterno del terminal durante il primo pass di texturing: tetto e facciata vetrata, prima che esistessero gli interni." decoding="async" height="544" loading="lazy" sizes="(max-width: 760px) 100vw, 260px" src="../../assets/img/3d/pau-terminal-wip-sm.webp" srcset="../../assets/img/3d/pau-terminal-wip-sm.webp 600w, ../../assets/img/3d/pau-terminal-wip.webp 1130w" width="1130"/>
+</a>
+<figcaption>L'esterno, primo pass di texturing</figcaption>
+</figure>
+<p>Prima l'esterno: tetto, vetro, i volumi che si leggono dal piazzale. L'immagine qui a fianco è il terminal durante il primo pass di texturing degli esterni, quando gli interni non esistevano ancora.</p>
+<figure class="feature-media case-float case-float--left">
+<a class="figure-open" href="../../assets/img/3d/pau-terminal-interior.webp" data-lightbox data-title="La hall del terminal nel simulatore: scale mobili, pavimento in marmo e la vetrata, con la torre visibile fuori." rel="noopener" target="_blank">
+<img alt="La hall del terminal nel simulatore: scale mobili, pavimento in marmo e la vetrata, con la torre visibile fuori." decoding="async" height="675" loading="lazy" sizes="(max-width: 760px) 100vw, 260px" src="../../assets/img/3d/pau-terminal-interior-sm.webp" srcset="../../assets/img/3d/pau-terminal-interior-sm.webp 600w, ../../assets/img/3d/pau-terminal-interior.webp 1200w" width="1200"/>
+</a>
+<figcaption>La hall e le scale mobili · in-sim</figcaption>
+</figure>
+<p>L'interno è arrivato dopo, stanza per stanza: la hall, le scale mobili, l'area check-in. È la parte che dal piazzale non vede nessuno e che attraversano tutti prima del gate.</p>
+<p>Per il terminal c'è voluta un'intera settimana. L'esperimento era nuovo: forme meno cubiche e più stondate, quasi organiche. Sinuosità su cui non avevo mai lavorato, inclinazioni su più assi ed estrusioni piane su superfici curve.</p>
+<p>Quando ho scelto Pau, l'ho scelto per questo. Quel terminal è semplicemente un'opera d'arte: forma futuristica ma con un'anima rustica. Un terminal così sinuoso, sperduto nei Pyrénées-Atlantiques, vicino a Lourdes e ai Pirenei. La montagna sullo sfondo, un edificio fantastico, e una torre che rispecchia lo standard dell'intera superficie aeroportuale.</p>
+<p>Che fosse una sfida lo sapevo. Quanto lo sarebbe stata l'avrei scoperto da lì a poco.</p>
+</div>
+<div class="case-strip">
+<figure class="feature-media">
+<a class="figure-open" href="../../assets/img/3d/pau-terminal-ext.webp" data-lightbox data-title="Il parcheggio davanti al terminal al tramonto, con gli edifici del terminal e la torre di controllo dietro." rel="noopener" target="_blank">
+<img alt="Il parcheggio davanti al terminal al tramonto, con gli edifici del terminal e la torre di controllo dietro." decoding="async" height="675" loading="lazy" sizes="(max-width: 560px) 100vw, (max-width: 1300px) 50vw, 24vw" src="../../assets/img/3d/pau-terminal-ext-sm.webp" srcset="../../assets/img/3d/pau-terminal-ext-sm.webp 600w, ../../assets/img/3d/pau-terminal-ext.webp 1200w" width="1200"/>
+</a>
+<figcaption>Il parcheggio, con il terminal dietro</figcaption>
+</figure>
+<figure class="feature-media">
+<a class="figure-open" href="../../assets/img/3d/pau-terminal-apron.webp" data-lightbox data-title="Il piazzale dall'alto, con due aerei in piazzola e la segnaletica di rullaggio." rel="noopener" target="_blank">
+<img alt="Il piazzale dall'alto, con due aerei in piazzola e la segnaletica di rullaggio." decoding="async" height="675" loading="lazy" sizes="(max-width: 560px) 100vw, (max-width: 1300px) 50vw, 24vw" src="../../assets/img/3d/pau-terminal-apron-sm.webp" srcset="../../assets/img/3d/pau-terminal-apron-sm.webp 600w, ../../assets/img/3d/pau-terminal-apron.webp 1200w" width="1200"/>
+</a>
+<figcaption>Il piazzale, con due aerei in piazzola</figcaption>
+</figure>
+<figure class="feature-media">
+<a class="figure-open" href="../../assets/img/3d/pau-terminal-hall.webp" data-lightbox data-title="La hall al tramonto: la vetrata, il pavimento e la luce che entra dalla facciata." rel="noopener" target="_blank">
+<img alt="La hall al tramonto: la vetrata, il pavimento e la luce che entra dalla facciata." decoding="async" height="675" loading="lazy" sizes="(max-width: 560px) 100vw, (max-width: 1300px) 50vw, 24vw" src="../../assets/img/3d/pau-terminal-hall-sm.webp" srcset="../../assets/img/3d/pau-terminal-hall-sm.webp 600w, ../../assets/img/3d/pau-terminal-hall.webp 1200w" width="1200"/>
+</a>
+<figcaption>La hall al tramonto</figcaption>
+</figure>
+<figure class="feature-media">
+<a class="figure-open" href="../../assets/img/3d/pau-terminal-seats.webp" data-lightbox data-title="La sala d'attesa dentro il terminal, con le sedute e la segnaletica delle partenze." rel="noopener" target="_blank">
+<img alt="La sala d'attesa dentro il terminal, con le sedute e la segnaletica delle partenze." decoding="async" height="675" loading="lazy" sizes="(max-width: 560px) 100vw, (max-width: 1300px) 50vw, 24vw" src="../../assets/img/3d/pau-terminal-seats-sm.webp" srcset="../../assets/img/3d/pau-terminal-seats-sm.webp 600w, ../../assets/img/3d/pau-terminal-seats.webp 1200w" width="1200"/>
+</a>
+<figcaption>La sala d'attesa</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<section class="block" id="modelli">
+<div class="block-head">
+<h2>Edifici e <em>oggetti</em></h2>
+</div>
+<div class="block-body">
+<div class="prose">
+<p>Gli edifici intorno al terminal seguono lo stesso metodo: volumi dalle fotografie, poi i dettagli che rendono riconoscibile il posto. I due terminal e la torre stanno nelle loro posizioni reali sulla superficie dell'aeroporto.</p>
+<p>La torre è l'edificio che guardano tutti. Modellata a tutto tondo, la cabina su due piani: l'anello che si vede in cima da fuori è il controsoffitto, non un terzo piano.</p>
+<p>Poi le cose piccole. Una macchina del check-in non è architettura, ma sta in ogni fotografia della hall, e deve essere giusta.</p>
+</div>
+<div class="case-strip">
+<figure class="feature-media">
+<a class="figure-open" href="../../assets/img/3d/pau-buildings.webp" data-lightbox data-title="I due terminal e la torre nella viewport Blender, nelle loro posizioni reali sull'aeroporto." rel="noopener" target="_blank">
+<img alt="I due terminal e la torre nella viewport Blender, nelle loro posizioni reali sull'aeroporto." decoding="async" height="641" loading="lazy" sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 24vw" src="../../assets/img/3d/pau-buildings-sm.webp" srcset="../../assets/img/3d/pau-buildings-sm.webp 600w, ../../assets/img/3d/pau-buildings.webp 1012w" width="1012"/>
+</a>
+<figcaption>Due terminal e la torre</figcaption>
+</figure>
+<figure class="feature-media">
+<a class="figure-open" href="../../assets/img/3d/pau-tower-mesh.webp" data-lightbox data-title="La torre di controllo: mesh della cabina su due piani; l'anello in cima è il controsoffitto." rel="noopener" target="_blank">
+<img alt="La torre di controllo: mesh della cabina su due piani; l'anello in cima è il controsoffitto." decoding="async" height="625" loading="lazy" sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 24vw" src="../../assets/img/3d/pau-tower-mesh-sm.webp" srcset="../../assets/img/3d/pau-tower-mesh-sm.webp 600w, ../../assets/img/3d/pau-tower-mesh.webp 765w" width="765"/>
+</a>
+<figcaption>Cabina della torre · due piani</figcaption>
+</figure>
+<figure class="feature-media">
+<a class="figure-open" href="../../assets/img/3d/pau-checkin-real.webp" data-lightbox data-title="Una macchina del check-in a Pau, fotografata sul posto: l'unica reference disponibile per quell'oggetto." rel="noopener" target="_blank">
+<img alt="Una macchina del check-in a Pau, fotografata sul posto." decoding="async" height="766" loading="lazy" sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 24vw" src="../../assets/img/3d/pau-checkin-real.webp" width="501"/>
+</a>
+<figcaption>Check-in · la reference</figcaption>
+</figure>
+<figure class="feature-media">
+<a class="figure-open" href="../../assets/img/3d/pau-checkin.webp" data-lightbox data-title="La stessa macchina rifatta in Blender da quella singola fotografia, con la livrea e lo schermo reali." rel="noopener" target="_blank">
+<img alt="La stessa macchina del check-in rifatta in Blender da quella singola fotografia, con la livrea e lo schermo reali." decoding="async" height="529" loading="lazy" sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 24vw" src="../../assets/img/3d/pau-checkin-sm.webp" srcset="../../assets/img/3d/pau-checkin-sm.webp 600w, ../../assets/img/3d/pau-checkin.webp 827w" width="827"/>
+</a>
+<figcaption>Check-in · rifatta</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<section class="block" id="nove-mesi">
+<div class="block-head">
+<h2>Nove <em>mesi</em></h2>
+</div>
+<div class="block-body">
+<div class="prose">
+<figure class="feature-media case-float">
+<a class="figure-open" href="../../assets/img/3d/pau-nine-night.webp" data-lightbox data-title="Il piazzale di notte, bagnato e con le luci riflesse, il terminal a sinistra." rel="noopener" target="_blank">
+<img alt="Il piazzale di notte, bagnato e con le luci riflesse, il terminal a sinistra." decoding="async" height="675" loading="lazy" sizes="(max-width: 760px) 100vw, 260px" src="../../assets/img/3d/pau-nine-night-sm.webp" srcset="../../assets/img/3d/pau-nine-night-sm.webp 600w, ../../assets/img/3d/pau-nine-night.webp 1200w" width="1200"/>
+</a>
+<figcaption>Il piazzale di notte · in-sim</figcaption>
+</figure>
+<p>In tutto, per LFBP ci sono voluti nove lunghi mesi. Tornavo da lavoro, stavo con la famiglia e mi sedevo al PC con i miei gatti.</p>
+<p>Ogni reference mancante era una ricerca estenuante. Ciò che sfugge al primo pass di raccolta reference, probabilmente non esiste o è annidato in profondità nella rete.</p>
+<figure class="feature-media case-float case-float--left">
+<a class="figure-open" href="../../assets/img/3d/pau-nine-dawn.webp" data-lightbox data-title="La pista alla prima luce, con il sole che sale sopra la soglia e i raccordi ancora in ombra." rel="noopener" target="_blank">
+<img alt="La pista alla prima luce, con il sole che sale sopra la soglia e i raccordi ancora in ombra." decoding="async" height="675" loading="lazy" sizes="(max-width: 760px) 100vw, 260px" src="../../assets/img/3d/pau-nine-dawn-sm.webp" srcset="../../assets/img/3d/pau-nine-dawn-sm.webp 600w, ../../assets/img/3d/pau-nine-dawn.webp 1200w" width="1200"/>
+</a>
+<figcaption>La pista all'alba · in-sim</figcaption>
+</figure>
+<p>Sentivo che tre schermi non bastassero più. Ne volevo altri, per scandagliare ogni byte di Internet e capire esattamente cosa stavo guardando e come fosse fatto. Era diventato febbrile: non era più una ricerca. Era una sfida, e inconsciamente l'avevo lanciata — e anche accettata.</p>
+</div>
+</div>
+</section>
+
+<section class="block" id="militare">
+<div class="block-head">
+<h2>Il lato <em>militare</em></h2>
+</div>
+<div class="block-body">
+<div class="prose">
+<p>Nel lato sud di Pau ha sede il 5e régiment d'hélicoptères de combat. Qui ho dovuto scendere a compromessi con me stesso.</p>
+<p>Quando avevo raccolto le reference, Maps non aveva ancora oscurato l'area: è successo dopo. Non avevo quasi nulla oltre a poche immagini dai social del reggimento, e l'area era in costruzione. Mi faceva male rinunciare a replicarla come si vedeva, ma a un certo punto ho capito: o scendevo a compromessi e rinunciavo alla precisione compulsiva, oppure omettevo il lato militare.</p>
+<p>Qualche veicolo statico, qualche personaggio animato nei propri compiti, e il meglio che potessi dare con un'area che era:</p>
+<ul class="case-list">
+<li>classificata;</li>
+<li>in continuo mutamento mentre ci lavoravo;</li>
+<li>poco documentata sui social;</li>
+<li>che chi mi aiutava non poteva fotografare.</li>
+</ul>
+<p>Ecco perché ne sono così orgoglioso. Perché ho sudato ogni singolo pixel del lato sud di Pau. E ora, guardandola, mi ricorda un po' casa.</p>
+</div>
+<div class="case-strip">
+<figure class="feature-media">
+<a class="figure-open" href="../../assets/img/3d/pau-mil-heli.webp" data-lightbox data-title="Un elicottero sul piazzale militare, con la torre del reggimento dietro." rel="noopener" target="_blank">
+<img alt="Un elicottero sul piazzale militare, con la torre del reggimento dietro." decoding="async" height="675" loading="lazy" sizes="(max-width: 560px) 100vw, (max-width: 1300px) 50vw, 24vw" src="../../assets/img/3d/pau-mil-heli-sm.webp" srcset="../../assets/img/3d/pau-mil-heli-sm.webp 600w, ../../assets/img/3d/pau-mil-heli.webp 1200w" width="1200"/>
+</a>
+<figcaption>Sul piazzale militare</figcaption>
+</figure>
+<figure class="feature-media">
+<a class="figure-open" href="../../assets/img/3d/pau-mil-pads.webp" data-lightbox data-title="Le piazzole dall'alto: cerchi gialli sul piazzale, gli hangar e il campo oltre." rel="noopener" target="_blank">
+<img alt="Le piazzole dall'alto: cerchi gialli sul piazzale, gli hangar e il campo oltre." decoding="async" height="675" loading="lazy" sizes="(max-width: 560px) 100vw, (max-width: 1300px) 50vw, 24vw" src="../../assets/img/3d/pau-mil-pads-sm.webp" srcset="../../assets/img/3d/pau-mil-pads-sm.webp 600w, ../../assets/img/3d/pau-mil-pads.webp 1200w" width="1200"/>
+</a>
+<figcaption>Le piazzole dall'alto</figcaption>
+</figure>
+<figure class="feature-media">
+<a class="figure-open" href="../../assets/img/3d/pau-mil-camp.webp" data-lightbox data-title="Il lato campo con il sole basso: hangar, container e attrezzature sotto un cielo ampio." rel="noopener" target="_blank">
+<img alt="Il lato campo con il sole basso: hangar, container e attrezzature sotto un cielo ampio." decoding="async" height="675" loading="lazy" sizes="(max-width: 560px) 100vw, (max-width: 1300px) 50vw, 24vw" src="../../assets/img/3d/pau-mil-camp-sm.webp" srcset="../../assets/img/3d/pau-mil-camp-sm.webp 600w, ../../assets/img/3d/pau-mil-camp.webp 1200w" width="1200"/>
+</a>
+<figcaption>Il lato campo</figcaption>
+</figure>
+<figure class="feature-media">
+<a class="figure-open" href="../../assets/img/3d/pau-mil-truck.webp" data-lightbox data-title="Un camion militare davanti agli hangar, con la segnaletica del piazzale che scorre." rel="noopener" target="_blank">
+<img alt="Un camion militare davanti agli hangar, con la segnaletica del piazzale che scorre." decoding="async" height="675" loading="lazy" sizes="(max-width: 560px) 100vw, (max-width: 1300px) 50vw, 24vw" src="../../assets/img/3d/pau-mil-truck-sm.webp" srcset="../../assets/img/3d/pau-mil-truck-sm.webp 600w, ../../assets/img/3d/pau-mil-truck.webp 1200w" width="1200"/>
+</a>
+<figcaption>Veicoli in sosta</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+
+</div>
+</div>
+</div>
+</main>
+<dialog class="image-dialog" data-image-dialog aria-label="Visualizzatore immagine">
+<div class="image-dialog-inner">
+<button class="image-dialog-close" type="button" data-image-close aria-label="Chiudi l'immagine">Chiudi ✕</button>
+<img alt="" data-image-target>
+</div>
+</dialog>
+
+<!-- FOOTER — vedi index.html -->
+<footer class="site-footer">
+  <div class="shell">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../index.html">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="brand-name">Cristian Da Ros</span>
+        </a>
+        <p>
+          3D modeling e real time per MSFS 2024, produzione video, codice e sistemi.
+          Sito statico, fatto a mano.
+        </p>
+      </div>
+
+      <nav class="footer-col" aria-label="Aree del sito">
+        <h2>Aree</h2>
+        <ul>
+          <li><a href="../3d-msfs.html">3D &amp; MSFS 2024</a></li>
+          <li><a href="../video.html">Produzione video</a></li>
+          <li><a href="../vibe-coding.html">Code &amp; AI</a></li>
+          <li><a href="../pc-linux.html">PC &amp; Linux</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <h2>Contatti</h2>
+        <ul>
+          <li><a href="mailto:chris.daros86@gmail.com">chris.daros86@gmail.com</a></li>
+          <li><a href="../contatti.html">Pagina contatti</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-base">
+      <p>© <span data-year>2026</span> Cristian Da Ros</p>
+      <p>HTML · CSS · JS — nessun CMS, nessun tracker</p>
+    </div>
+
+    <p class="footer-name" aria-hidden="true">Cristian Da Ros</p>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js?v=3d-6" defer></script>
+</body>
+</html>
