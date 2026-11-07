@@ -1,2 +1,5 @@
+# losco-nosciuto.github.io
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://losco-nosciuto.github.io/sitemap.xml

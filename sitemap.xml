@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dominio: losco-nosciuto.github.io -->
+<!-- Le pagine ancora noindex (Code & AI e caso studio LODs) restano fuori:
+     aggiungile qui solo quando noindex viene rimosso.
+     check_site3.py verifica questa coerenza. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://losco-nosciuto.github.io/</loc><priority>1.0</priority></url>
+  <url><loc>https://losco-nosciuto.github.io/3d-msfs.html</loc><priority>0.9</priority></url>
+  <url><loc>https://losco-nosciuto.github.io/video.html</loc><priority>0.9</priority></url>
+  <url><loc>https://losco-nosciuto.github.io/vibe-coding.html</loc><priority>0.8</priority></url>
+  <url><loc>https://losco-nosciuto.github.io/pc-linux.html</loc><priority>0.8</priority></url>
+  <url><loc>https://losco-nosciuto.github.io/contatti.html</loc><priority>0.6</priority></url>
+  <url><loc>https://losco-nosciuto.github.io/portfolio/video.html</loc><priority>0.7</priority></url>
+  <url><loc>https://losco-nosciuto.github.io/portfolio/3d-msfs.html</loc><priority>0.7</priority></url>
+  <url><loc>https://losco-nosciuto.github.io/portfolio/pau-pyrenees.html</loc><priority>0.6</priority></url>
+  <url><loc>https://losco-nosciuto.github.io/it/</loc><priority>1.0</priority></url>
+  <url><loc>https://losco-nosciuto.github.io/it/3d-msfs.html</loc><priority>0.9</priority></url>
+  <url><loc>https://losco-nosciuto.github.io/it/video.html</loc><priority>0.9</priority></url>
+  <url><loc>https://losco-nosciuto.github.io/it/vibe-coding.html</loc><priority>0.8</priority></url>
+  <url><loc>https://losco-nosciuto.github.io/it/pc-linux.html</loc><priority>0.8</priority></url>
+  <url><loc>https://losco-nosciuto.github.io/it/contatti.html</loc><priority>0.6</priority></url>
+  <url><loc>https://losco-nosciuto.github.io/it/portfolio/video.html</loc><priority>0.7</priority></url>
+  <url><loc>https://losco-nosciuto.github.io/it/portfolio/3d-msfs.html</loc><priority>0.7</priority></url>
+  <url><loc>https://losco-nosciuto.github.io/it/portfolio/pau-pyrenees.html</loc><priority>0.6</priority></url>
+</urlset>
